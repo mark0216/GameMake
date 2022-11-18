@@ -10,7 +10,7 @@ public class MpControl : MonoBehaviour
     [SerializeField] private Text mpValue;
 
     public float mpRecoverRate;
-    public float currentMpValue;
+    public float currentMpValue { get; private set; }
     void Update()
     {
         MpCalculate();
@@ -27,5 +27,9 @@ public class MpControl : MonoBehaviour
         currentMpValue += mpRecoverRate * Time.deltaTime;
         currentMpValue = Mathf.Clamp(currentMpValue, 0, 10);
         UpdateCanvas();
+    }
+    public void ReduceMp(float value)
+    {
+        currentMpValue -= value;
     }
 }

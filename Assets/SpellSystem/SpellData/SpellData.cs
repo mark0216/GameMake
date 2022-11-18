@@ -13,6 +13,7 @@ public class Data
 {
     public string name;
     public float cost;
+    public float delayTime;
     public Sprite icon;
     public Sprite previewPic;
     public GameObject spell;
