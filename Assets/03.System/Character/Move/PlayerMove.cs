@@ -27,11 +27,14 @@ public class PlayerMove : CommonMove
             MiunsSpeed(); //沒按按鍵就開始減速
         // 左右走加轉向
 
-        if (Input.GetKeyDown(KeyCode.Space) && JumpTime < MaxJumpTimes)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            VerticalVelocity();
+            if (JumpTime < MaxJumpTimes)
+            {
+                VerticalVelocity();
 
-            JumpTime++;
+                JumpTime++;
+            }
         }
         // 跳躍
 

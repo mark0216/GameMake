@@ -9,9 +9,10 @@ public class CommonMove : MonoBehaviour
 
     [HideInInspector] public int LastMoveDirection = 1; //角色最後朝向
     private Vector3 ScacleNow; // X值為角色當前朝向
-    public bool UsingHorizonFlip;
 
-    protected float RollCD;
+    public bool UsingHorizonFlip; // 角色翻面模式
+
+    protected float RollCD; // 翻滾CD時間
 
     [SerializeField] protected Vector2 FinalSpeed = new Vector2(0, 0); // 最終運動速度
 
@@ -92,6 +93,7 @@ public class CommonMove : MonoBehaviour
         //  Debug.Log("minus speed is working");
 
         HorizonSpeed -= MinusSpeed * LastMoveDirection * Time.deltaTime * MinusSpeedAdjust;
+        // 計算當前速度
 
         if (LastMoveDirection == 1)
         {
@@ -101,7 +103,7 @@ public class CommonMove : MonoBehaviour
         {
             HorizonSpeed = Mathf.Clamp(HorizonSpeed, -HorizonSpeedMax, 0);
         }
-
+        // 限制移動速度最大最小值
         // 減速 最大或最小為0
     }
     protected void VerticalVelocity()
@@ -109,38 +111,41 @@ public class CommonMove : MonoBehaviour
         //Debug.Log("Vertical move work");
 
         VerticalSpeed = VerticalSpeedMax;
+
+        // 將垂直速度變更為上限 
+        // 跳躍用
     }
     protected void GravityEffect()
     {
         VerticalSpeed -= Gravity * Time.deltaTime * GravityAdjust;
+        // 計算當前速度
 
-        VerticalSpeed = Mathf.Clamp(VerticalSpeed, GravityMax, VerticalSpeedMax);
+        if (!GroundTouching)
+            VerticalSpeed = Mathf.Clamp(VerticalSpeed, GravityMax, VerticalSpeedMax);
+
+        // 限制移動速度最大最小值
+        // 減速 最大或最小為0
     }
 
     // Gravity
 
-    public void Brake() // 急煞 將速度與加速度歸0
+    public void Brake()
     {
         Debug.Log("brake");
         HorizonSpeed = 0;
         AddSpeedAdjust = 0;
+
+        // 急煞
+        // 將速度與加速度歸0
     }
 
-    public void Dash() // 短距離衝刺
+    public void Dash()
     {
         Debug.Log("Dash");
         HorizonSpeed = HorizonSpeedMax * LastMoveDirection;
-        MinusSpeedAdjust = 0;
-    }
 
-    public void AddSpeedReset() // 急煞結束後用 將加速度回歸正常
-    {
-        AddSpeedAdjust = OriginAddSpeedAdjust;
-    }
-
-    public void MinusSpeedReset() // 短距離衝刺後用  
-    {
-        MinusSpeedAdjust = OriginMinusSpeedAdjust;
+        // 短距離衝刺
+        // 將水平速度變更為上限 
     }
 
     // Action

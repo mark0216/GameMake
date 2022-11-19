@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GroundAndWallDetect : MonoBehaviour
 {
     #region state
@@ -69,7 +70,7 @@ public class GroundAndWallDetect : MonoBehaviour
                                     transform.lossyScale.y * BotBoxHeight);
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         BotDetectSize = new Vector2(transform.lossyScale.x * BotBoxWide,
@@ -81,15 +82,19 @@ public class GroundAndWallDetect : MonoBehaviour
         BottomDetectPos = new Vector2(transform.position.x + BotWideAdjust,
                                       transform.position.y + BotHeightAdjust);
 
-        RightDetectPos = new Vector2(transform.position.x + transform.lossyScale.x * 0.5f + RLWideAdjust,
+        RightDetectPos = new Vector2(transform.position.x + 1 * 0.5f + RLWideAdjust,
                                      transform.position.y + RLHeightAdjust);
 
-        LeftDetectPos = new Vector2(transform.position.x - transform.lossyScale.x * 0.5f - RLWideAdjust,
+        LeftDetectPos = new Vector2(transform.position.x - 1 * 0.5f - RLWideAdjust,
                                      transform.position.y + RLHeightAdjust);
+
+        // 更新 collison的位置和大小
 
         GroundDetect = Physics2D.OverlapBox(BottomDetectPos, BotDetectSize, 0, Ground);
         LeftWallDetect = Physics2D.OverlapBox(LeftDetectPos,RLDetectSize, 0, Wall);
         RightWallDetect = Physics2D.OverlapBox (RightDetectPos,RLDetectSize, 0, Wall);
+
+        // 更新 Gizmo 
 
         GroundTouching = GroundDetect;
 
@@ -97,6 +102,8 @@ public class GroundAndWallDetect : MonoBehaviour
             WallTouching = true;
         else
             WallTouching = false;
+
+        // 更新 State
 
     }
 
