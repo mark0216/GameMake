@@ -274,8 +274,8 @@ MonoBehaviour:
   UsingHorizonFlip: 1
   FinalSpeed: {x: 0, y: 0}
   HorizonSpeed: 0
-  AddSpeedAdjust: 3
-  MinusSpeedAdjust: 5
+  AddSpeedAdjust: 5
+  MinusSpeedAdjust: 9
   VerticalSpeed: 0
   GravityAdjust: 2
   GravityMax: -20
