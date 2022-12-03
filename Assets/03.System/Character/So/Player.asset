@@ -16,7 +16,7 @@ MonoBehaviour:
   AddSpeed: 3
   MinusSpeed: 3
   Gravity: 10
-  JumpSpeed: 10
+  JumpSpeed: 13
   AirJumpTimes: 1
   HP: 100
   Atk: 10
