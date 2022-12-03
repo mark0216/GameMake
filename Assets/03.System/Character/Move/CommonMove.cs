@@ -43,9 +43,13 @@ public class CommonMove : MonoBehaviour
     protected bool GroundTouching; // 地板偵測
     #endregion
 
+    private float BeforeDashSpeed;
+    private float BeforeDahsMoveDirection;
+
     #region 組件
 
     protected GroundAndWallDetect GroundAndWallDetect;
+    protected CommonAnimtion CommonAnimtion;
 
     #endregion
 
@@ -57,12 +61,14 @@ public class CommonMove : MonoBehaviour
         AddSpeed = ChatacterData.AddSpeed;
         MinusSpeed = ChatacterData.MinusSpeed;
 
+
         Gravity = ChatacterData.Gravity;
         MaxJumpTimes = ChatacterData.AirJumpTimes;
 
         Rd = this.GetComponent<Rigidbody2D>();
 
         GroundAndWallDetect = this.GetComponent<GroundAndWallDetect>();
+        CommonAnimtion = this.GetComponent<CommonAnimtion>();   
 
         OriginAddSpeedAdjust = AddSpeedAdjust;
         OriginMinusSpeedAdjust = MinusSpeedAdjust;
@@ -75,7 +81,13 @@ public class CommonMove : MonoBehaviour
         if (Direction != LastMoveDirection && UsingHorizonFlip)
             HorizonFlip();
 
+        //if (HorizonSpeed > HorizonSpeedLimited)
+        //    AddSpeedAdjust = AddSpeedAdjustOri * 0.05f;
+        //else if (HorizonSpeedLimited < MinusSpeedAdjust)
+        //    AddSpeedAdjust = AddSpeedAdjustOri;
+
         HorizonSpeed += AddSpeed * Direction * Time.deltaTime * AddSpeedAdjust; // v = v0 + at*調整值
+
         HorizonSpeed = Mathf.Clamp(HorizonSpeed, -HorizonSpeedMax, HorizonSpeedMax); // 避免超過速度上限
 
         LastMoveDirection = Direction; // 紀錄當前移動方向,轉向和減速用
@@ -139,10 +151,20 @@ public class CommonMove : MonoBehaviour
         // 將速度與加速度歸0
     }
 
-    public void Dash()
+    public IEnumerator Dash()
     {
         Debug.Log("Dash");
-        HorizonSpeed = HorizonSpeedMax * LastMoveDirection;
+
+        //DashPoint = new Vector2(transform.position.x + DashDistance * LastMoveDirection*Time.deltaTime, transform.position.y);
+        //transform.position = Vector2.MoveTowards(transform.position, DashPoint, DahsLength);
+
+        BeforeDashSpeed = HorizonSpeed;
+        HorizonSpeed = HorizonSpeedMax * 2 * LastMoveDirection;
+        yield return new WaitForSeconds(1f);
+
+        if(LastMoveDirection == BeforeDahsMoveDirection)
+            HorizonSpeed = BeforeDashSpeed;
+
 
         // 短距離衝刺
         // 將水平速度變更為上限 
