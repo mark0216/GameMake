@@ -45,6 +45,7 @@ public class CommonMove : MonoBehaviour
 
     private float BeforeDashSpeed;
     private float BeforeDahsMoveDirection;
+    public float DashLength;
 
     #region ²Õ¥ó
 
@@ -158,12 +159,16 @@ public class CommonMove : MonoBehaviour
         //DashPoint = new Vector2(transform.position.x + DashDistance * LastMoveDirection*Time.deltaTime, transform.position.y);
         //transform.position = Vector2.MoveTowards(transform.position, DashPoint, DahsLength);
 
+        HorizonSpeedMax = HorizonSpeedMax * 2;
+
         BeforeDashSpeed = HorizonSpeed;
-        HorizonSpeed = HorizonSpeedMax * 2 * LastMoveDirection;
-        yield return new WaitForSeconds(1f);
+        HorizonSpeed = 10 * 2 * LastMoveDirection;
+        yield return new WaitForSeconds(DashLength);
 
         if(LastMoveDirection == BeforeDahsMoveDirection)
             HorizonSpeed = BeforeDashSpeed;
+
+        HorizonSpeedMax = ChatacterData.MaxMoveSpeed;
 
 
         // µu¶ZÂ÷½Ä¨ë
