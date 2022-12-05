@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMove : CommonMove
 {
-    [SerializeField] private int JumpTime;
+    public int JumpTime;
 
 
     void Update()
@@ -16,6 +16,11 @@ public class PlayerMove : CommonMove
         {
             VerticalSpeed = Mathf.Clamp(VerticalSpeed, 0, VerticalSpeedMax);
             JumpTime = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            StartCoroutine(Dash());
         }
         // 跳躍狀態重置
 
@@ -31,9 +36,10 @@ public class PlayerMove : CommonMove
         {
             if (JumpTime < MaxJumpTimes)
             {
+                JumpTime++;
                 VerticalVelocity();
 
-                JumpTime++;
+                CommonAnimtion.JumpTrigger();
             }
         }
         // 跳躍
@@ -44,5 +50,10 @@ public class PlayerMove : CommonMove
         FinalSpeed = new Vector2(HorizonSpeed, VerticalSpeed);
         Rd.velocity = FinalSpeed;
         // 移動速度計算
+    }
+
+    private void LateUpdate()
+    {
+     
     }
 }
