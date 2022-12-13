@@ -88,7 +88,7 @@ public class SpellSystem : MonoBehaviour
         {
             GameObject clone = Instantiate(spellInfoPrefab, spellInfoPrefab.transform.parent);
             clone.name = "Info_" + i.ToString();
-            clone.GetComponent<RectTransform>().position += new Vector3(0, i * -200, 0);
+            //clone.GetComponent<RectTransform>().position += new Vector3(0, i * -200, 0);
             infos.Add(clone.GetComponent<SpellInfoControl>());
             int tmp = i;
             clone.GetComponent<SpellInfoControl>()._button.onClick.AddListener(() => PressSpellButton(tmp));
