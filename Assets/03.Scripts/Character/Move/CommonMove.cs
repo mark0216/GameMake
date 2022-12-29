@@ -6,6 +6,7 @@ public class CommonMove : MonoBehaviour
 {
     public ChatacterData ChatacterData;
     protected Rigidbody2D Rd;
+    [HideInInspector]public CommonState State;
 
     [HideInInspector] public int LastMoveDirection = 1; //角色最後朝向
     private Vector3 ScacleNow; // X值為角色當前朝向
@@ -67,6 +68,8 @@ public class CommonMove : MonoBehaviour
         MaxJumpTimes = ChatacterData.AirJumpTimes;
 
         Rd = this.GetComponent<Rigidbody2D>();
+
+        State = this.GetComponent<CommonState>();
 
         GroundAndWallDetect = this.GetComponent<GroundAndWallDetect>();
         CommonAnimtion = this.GetComponent<CommonAnimtion>();   
@@ -142,7 +145,7 @@ public class CommonMove : MonoBehaviour
 
     // Gravity
 
-    public void Brake()
+    public IEnumerator Brake(float MaintainLength)
     {
         Debug.Log("brake");
         HorizonSpeed = 0;
@@ -150,14 +153,13 @@ public class CommonMove : MonoBehaviour
 
         // 急煞
         // 將速度與加速度歸0
+
+        yield return new WaitForSecondsRealtime(MaintainLength);
     }
 
     public IEnumerator Dash()
     {
         Debug.Log("Dash");
-
-        //DashPoint = new Vector2(transform.position.x + DashDistance * LastMoveDirection*Time.deltaTime, transform.position.y);
-        //transform.position = Vector2.MoveTowards(transform.position, DashPoint, DahsLength);
 
         HorizonSpeedMax = HorizonSpeedMax * 2;
 
@@ -173,6 +175,21 @@ public class CommonMove : MonoBehaviour
 
         // 短距離衝刺
         // 將水平速度變更為上限 
+    }
+
+    public void AssignSpeed(float MaintainLength)
+    {
+        StartCoroutine(AssignSpeedIE(MaintainLength));
+    }
+
+    private IEnumerator AssignSpeedIE(float MaintainLength)
+    {
+        HorizonSpeedMax = ChatacterData.AssignSpeed;
+        HorizonSpeed = HorizonSpeedMax;
+
+        yield return new WaitForSecondsRealtime(MaintainLength);
+
+        HorizonSpeedMax = ChatacterData.MaxMoveSpeed;
     }
 
     // Action

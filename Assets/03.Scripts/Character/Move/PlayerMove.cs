@@ -12,37 +12,45 @@ public class PlayerMove : CommonMove
         GroundTouching = GroundAndWallDetect.GroundTouching;
         // 地板偵測更新
 
-        if (GroundTouching)
+        if (!State.Dazzing)
         {
-            VerticalSpeed = Mathf.Clamp(VerticalSpeed, 0, VerticalSpeedMax);
-            JumpTime = 0;
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            StartCoroutine(Dash());
-        }
-        // 跳躍狀態重置
-
-        if (Input.GetKey(KeyCode.A))
-            HorizonVelocity(-1);
-        else if (Input.GetKey(KeyCode.D))
-            HorizonVelocity(1);
-        else
-            MiunsSpeed(); //沒按按鍵就開始減速
-        // 左右走加轉向
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (JumpTime < MaxJumpTimes)
+            if (GroundTouching)
             {
-                JumpTime++;
-                VerticalVelocity();
-
-                CommonAnimtion.JumpTrigger();
+                VerticalSpeed = Mathf.Clamp(VerticalSpeed, 0, VerticalSpeedMax);
+                JumpTime = 0;
             }
+
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                StartCoroutine(Dash());
+            }
+            // 跳躍狀態重置
+
+            if (Input.GetKey(KeyCode.A))
+                HorizonVelocity(-1);
+            else if (Input.GetKey(KeyCode.D))
+                HorizonVelocity(1);
+            else
+                MiunsSpeed(); //沒按按鍵就開始減速
+                              // 左右走加轉向
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (JumpTime < MaxJumpTimes)
+                {
+                    JumpTime++;
+                    VerticalVelocity();
+
+                    CommonAnimtion.JumpTrigger();
+                }
+            }
+            // 跳躍
         }
-        // 跳躍
+        
+        if(State.Dazzing)
+        {
+            Brake(Time.deltaTime);
+        }
 
         GravityEffect();
         // 重力計算
@@ -52,8 +60,5 @@ public class PlayerMove : CommonMove
         // 移動速度計算
     }
 
-    private void LateUpdate()
-    {
-     
-    }
+   
 }
