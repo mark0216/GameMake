@@ -18,6 +18,7 @@ public class ChatacterData : ScriptableObject
     public float Gravity; // 重力
     public float JumpSpeed; // 垂直最大速度
     public int AirJumpTimes; // 最大跳躍次數
+    public float JumpCD;
 
     [Header("element fight value")]
     public float HP;

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerMove : CommonMove
 {
-    public int JumpTime;
+    [HideInInspector] public int JumpTime;
+
     void Update()
     {
         GroundTouching = GroundAndWallDetect.GroundTouching;
@@ -34,8 +35,9 @@ public class PlayerMove : CommonMove
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                if (JumpTime < MaxJumpTimes)
+                if (JumpTime < MaxJumpTimes && Time.time > LastJumpTime + ChatacterData.JumpCD)
                 {
+                    LastJumpTime = Time.time;
                     JumpTime++;
                     VerticalVelocity();
 

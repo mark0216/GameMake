@@ -48,6 +48,8 @@ public class CommonMove : MonoBehaviour
     private float BeforeDahsMoveDirection;
     public float DashLength;
 
+    protected float LastJumpTime;
+
     #region 組件
 
     protected GroundAndWallDetect GroundAndWallDetect;
@@ -78,6 +80,7 @@ public class CommonMove : MonoBehaviour
         OriginMinusSpeedAdjust = MinusSpeedAdjust;
 
         RollCD = ChatacterData.RollCD;
+        LastJumpTime = Time.time;
     }
 
     protected void HorizonVelocity(int Direction) // 水平速度控制(+1往右 -1往左)

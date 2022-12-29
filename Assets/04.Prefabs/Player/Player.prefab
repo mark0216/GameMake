@@ -133,7 +133,7 @@ MonoBehaviour:
   RLWideAdjust: 0.6
   RLHeightAdjust: 0.05
   BotBoxWide: 0.65
-  BotBoxHeight: 0.02
+  BotBoxHeight: 0.1
   BotWideAdjust: 0
   BotHeightAdjust: -0.8
   Ground:
