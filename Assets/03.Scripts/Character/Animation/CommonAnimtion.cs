@@ -35,6 +35,11 @@ public class CommonAnimtion : MonoBehaviour
        
     }
 
+    public void DazzTrigger()
+    {
+        Animator.SetTrigger("Dazz");
+    }
+
     protected void LandingTrigger()
     {
         Animator.SetBool("GroundTouching", GroundAndWallDetect.GroundTouching);

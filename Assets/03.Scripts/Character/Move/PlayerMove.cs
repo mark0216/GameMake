@@ -48,6 +48,7 @@ public class PlayerMove : CommonMove
         if(State.Dazzing)
         {
             Brake(Time.deltaTime);
+            CommonAnimtion.DazzTrigger();
         }
 
         GravityEffect();
