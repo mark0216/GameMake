@@ -103,6 +103,8 @@ public class CommonMove : MonoBehaviour
         ScacleNow.x *= -1;
 
         this.gameObject.transform.localScale = ScacleNow;
+
+        HorizonSpeed = 0;
     }
     protected void MiunsSpeed()
     {
@@ -177,15 +179,28 @@ public class CommonMove : MonoBehaviour
         // 將水平速度變更為上限 
     }
 
-    public void AssignSpeed(float MaintainLength)
+    public void AssignSpeedPostive(float MaintainLength)
     {
-        StartCoroutine(AssignSpeedIE(MaintainLength));
+        StartCoroutine(AssignSpeedPostiveIE(MaintainLength));
     }
 
-    private IEnumerator AssignSpeedIE(float MaintainLength)
+    private IEnumerator AssignSpeedPostiveIE(float MaintainLength)
     {
-        HorizonSpeedMax = ChatacterData.AssignSpeed;
-        HorizonSpeed = HorizonSpeedMax;
+        HorizonSpeedMax = ChatacterData.AssignSpeedPostive;
+
+        yield return new WaitForSecondsRealtime(MaintainLength);
+
+        HorizonSpeedMax = ChatacterData.MaxMoveSpeed;
+    }
+
+    public void AssignSpeedNegtive(float MaintainLength)
+    {
+        StartCoroutine(AssignSpeedNegtiveIE(MaintainLength));
+    }
+
+    private IEnumerator AssignSpeedNegtiveIE(float MaintainLength)
+    {
+        HorizonSpeedMax = ChatacterData.AssignSpeedNegtive;
 
         yield return new WaitForSecondsRealtime(MaintainLength);
 

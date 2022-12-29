@@ -11,7 +11,8 @@ public class ChatacterData : ScriptableObject
     public float MinusSpeed; // 水平減速度 
 
     [Header("assign speed")]
-    public float AssignSpeed;
+    public float AssignSpeedPostive;
+    public float AssignSpeedNegtive;
 
     [Header("element vertical speed contorl")]
     public float Gravity; // 重力

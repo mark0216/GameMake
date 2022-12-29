@@ -5,8 +5,6 @@ using UnityEngine;
 public class PlayerMove : CommonMove
 {
     public int JumpTime;
-
-
     void Update()
     {
         GroundTouching = GroundAndWallDetect.GroundTouching;

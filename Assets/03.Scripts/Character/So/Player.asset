@@ -15,7 +15,8 @@ MonoBehaviour:
   MaxMoveSpeed: 10
   AddSpeed: 3
   MinusSpeed: 3
-  AssignSpeed: 50
+  AssignSpeedPostive: 20
+  AssignSpeedNegtive: 5
   Gravity: 10
   JumpSpeed: 13
   AirJumpTimes: 1
