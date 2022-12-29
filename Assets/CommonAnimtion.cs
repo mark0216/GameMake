@@ -45,4 +45,6 @@ public class CommonAnimtion : MonoBehaviour
    //     Animator.SetFloat(JumpTriggerName, CommonMove.VerticalSpeed);
         Animator.SetFloat(RunTriggerName, Mathf.Abs(PlayerMove.HorizonSpeed));
     }
+
+    //
 }
