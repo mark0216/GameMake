@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMove : CommonMove
 {
     [HideInInspector] public int JumpTime;
+    public bool isChaos=false;
 
     void Update()
     {
@@ -24,22 +25,32 @@ public class PlayerMove : CommonMove
                 StartCoroutine(Dash());
             }
             // 跳躍狀態重置
-
-            if (Input.GetKey(KeyCode.A))
-                HorizonVelocity(-1);
-            else if (Input.GetKey(KeyCode.D))
-                HorizonVelocity(1);
+            if (isChaos)
+            {
+                if (Input.GetKey(KeyCode.A))
+                    HorizonVelocity(1);
+                else if (Input.GetKey(KeyCode.D))
+                    HorizonVelocity(-1);
+                else
+                    MiunsSpeed(); //沒按按鍵就開始減速
+                                  // 左右走加轉向
+            }
             else
-                MiunsSpeed(); //沒按按鍵就開始減速
-                              // 左右走加轉向
-
+            {
+                if (Input.GetKey(KeyCode.A))
+                    HorizonVelocity(-1);
+                else if (Input.GetKey(KeyCode.D))
+                    HorizonVelocity(1);
+                else
+                    MiunsSpeed();
+            }
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 if (JumpTime < MaxJumpTimes && Time.time > LastJumpTime + ChatacterData.JumpCD)
                 {
                     LastJumpTime = Time.time;
                     JumpTime++;
-                    VerticalVelocity();
+                    VerticalVelocity(1);
 
                     CommonAnimtion.JumpTrigger();
                 }
@@ -60,6 +71,9 @@ public class PlayerMove : CommonMove
         Rd.velocity = FinalSpeed;
         // 移動速度計算
     }
-
+    public void juumpEffect(float tmp)
+    {
+        VerticalVelocity(tmp);
+    }
    
 }
