@@ -4942,6 +4942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CD_Tiimer: 3
+  portal_orange: {fileID: 1001476567}
 --- !u!1 &803097209
 GameObject:
   m_ObjectHideFlags: 0
@@ -5460,6 +5461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   portalCD: 3
+  portal_blue: {fileID: 791704926}
 --- !u!1 &1054456357
 GameObject:
   m_ObjectHideFlags: 0

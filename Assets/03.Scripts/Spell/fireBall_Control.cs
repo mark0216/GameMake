@@ -22,7 +22,7 @@ public class fireBall_Control : BaseSpellTrigger
     }
     protected override void HitPlayer()
     {
-       // GameObject.Find("Player").GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 100), ForceMode2D.Impulse);
+        GameObject.Find("Player").GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 100), ForceMode2D.Impulse);
         
         StartCoroutine(DelayPhaseProgress(effectDuration));
 
