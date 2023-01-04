@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   MaxMoveSpeed: 10
-  AddSpeed: 3
+  AddSpeed: 10
   MinusSpeed: 3
   AssignSpeedPostive: 20
   AssignSpeedNegtive: 5
