@@ -127,11 +127,11 @@ public class CommonMove : MonoBehaviour
         // 限制移動速度最大最小值
         // 減速 最大或最小為0
     }
-    protected void VerticalVelocity()
+    protected void VerticalVelocity(float Adjust)
     {
         //Debug.Log("Vertical move work");
 
-        VerticalSpeed = VerticalSpeedMax;
+        VerticalSpeed = VerticalSpeedMax * Adjust;
 
         // 將垂直速度變更為上限 
         // 跳躍用
