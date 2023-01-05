@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class thunder_Control : BaseSpellTrigger
 {
+    [SerializeField] private float effectDuration = 5;
+
     public Animator Anim_player;
     void Start()
     {
@@ -15,15 +17,15 @@ public class thunder_Control : BaseSpellTrigger
     {
         if (Anim_player.GetCurrentAnimatorStateInfo(0).IsName("end"))
         {
+            GetComponent<SpriteRenderer>().enabled = false;
             Destroy(this.gameObject);
+
         }
     }
     protected override void HitPlayer()
     {
+        FindObjectOfType<PlayerMove>().SetAirSpeed(effectDuration, 8f,10f);
+        print(gameObject.name + " hit");
     }
 
-    IEnumerator DelayPhaseProgress(float delaySec)
-    {
-        yield return new WaitForSeconds(delaySec);
-    }
 }

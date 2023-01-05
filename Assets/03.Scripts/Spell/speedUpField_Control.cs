@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class acceleratedfield_Control : BaseSpellTrigger
+public class speedUpField_Control : BaseSpellTrigger
 {
     [SerializeField] private float effectDuration = 5;
     [SerializeField] private float timer = 0;
@@ -24,7 +24,7 @@ public class acceleratedfield_Control : BaseSpellTrigger
     {
         //   FindObjectOfType<PlayerMove>().isChaos = true;
         //speedupOn
-
+        FindObjectOfType<PlayerMove>().SetSpeedPostive(20f);
         isInside = true;
         timer = effectDuration;
 
@@ -56,6 +56,8 @@ public class acceleratedfield_Control : BaseSpellTrigger
         {
             // FindObjectOfType<PlayerMove>().isChaos = false;
             //speedupOff
+            FindObjectOfType<PlayerMove>().SetSpeedPostive(10f);
+            print(" off");
 
         }
 

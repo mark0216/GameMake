@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class fireBall_Control : BaseSpellTrigger
 {
-    [SerializeField] private float movementSpeed = 3f;
-    [SerializeField] private float effectDuration = 3f;
-    [SerializeField] private float moveSpeed = 3f;
+    [SerializeField] private GameObject exp ;
 
-    
+    [SerializeField] private float movementSpeed = 3f;
+    [SerializeField] private float effectDuration = 0.3f;
+    public Animator Anim_player;
+
+
     void Start()
     {
         
@@ -19,18 +21,28 @@ public class fireBall_Control : BaseSpellTrigger
     {
         checkLrSide();
         checkPosOut();
+        if (Anim_player.GetCurrentAnimatorStateInfo(0).IsName("end"))
+        {
+            Destroy(this.gameObject);
+
+        }
+
     }
     protected override void HitPlayer()
     {
-     //   GameObject.Find("Player").GetComponent<CommonMove>().AssignForce();
-        
-        StartCoroutine(DelayPhaseProgress(effectDuration));
+        //   GameObject.Find("Player").GetComponent<CommonMove>().AssignForce();
 
+        //StartCoroutine(DelayPhaseProgress(effectDuration));
+        FindObjectOfType<PlayerMove>().AssignForce(movementSpeed * 1000,1000f);
+        exp.SetActive(true);
+        movementSpeed = 0;
+        GetComponent<SpriteRenderer>().enabled = false;
     }
 
     IEnumerator DelayPhaseProgress(float delaySec)
     {
         yield return new WaitForSeconds(delaySec);
+        Destroy(this.gameObject);
     }
     private void checkLrSide()
     {

@@ -193,12 +193,16 @@ public class CommonMove : MonoBehaviour
 
     public void AssingForceTest()
     {
-        AssignForce(10, 10);
+        AssignForce(-10, 10);
     }
 
     public void AssignSpeedPostive(float MaintainLength)
     {
         StartCoroutine(AssignSpeedPostiveIE(MaintainLength));
+    }
+    public void SetSpeedPostive(float Limit)
+    {
+        HorizonSpeedMax = Limit;
     }
 
     private IEnumerator AssignSpeedPostiveIE(float MaintainLength)
@@ -223,10 +227,19 @@ public class CommonMove : MonoBehaviour
 
         HorizonSpeedMax = ChatacterData.MaxMoveSpeed;
     }
-
-    public void AssignAirSpeed(float AssignValue)
+    
+    public void SetAirSpeed(float MaintainLength, float Effect, float Origin)
     {
-        VerticalSpeedMax = AssignValue;
+        StartCoroutine(AssignAirSpeed(MaintainLength, Effect, Origin));
+
+    }
+    private IEnumerator AssignAirSpeed(float MaintainLength,float Effect,float Origin)
+    {
+        VerticalSpeedMax = Effect;
+
+        yield return new WaitForSecondsRealtime(MaintainLength);
+
+        VerticalSpeedMax = Origin;
     }
 
     // Action

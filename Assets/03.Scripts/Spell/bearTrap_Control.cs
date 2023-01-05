@@ -19,6 +19,9 @@ public class bearTrap_Control : BaseSpellTrigger
     protected override void HitPlayer()
     {
         FindObjectOfType<CommonState>().Dazzing=true;
+        //  FindObjectOfType<PlayerMove>().FinalSpeed.x=0;
+        GameObject.Find("Player").GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
+
         myImage.sprite = mySprite2;
 
         StartCoroutine(DelayPhaseProgress(effectDuration));
@@ -28,6 +31,8 @@ public class bearTrap_Control : BaseSpellTrigger
     {
         yield return new WaitForSeconds(delaySec);
         FindObjectOfType<CommonState>().Dazzing = false;
+        GameObject.Find("Player").GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+
         Destroy(this.gameObject);
     }
 }
