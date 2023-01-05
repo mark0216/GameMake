@@ -6,6 +6,7 @@ public class blackmagic_Control : BaseSpellTrigger
 {
     [SerializeField] private float movementSpeed = 3f;
     [SerializeField] private float effectDuration = 3;
+    [SerializeField] private GameObject PanelMask;
 
     void Start()
     {
@@ -19,13 +20,16 @@ public class blackmagic_Control : BaseSpellTrigger
     }
     protected override void HitPlayer()
     {
+        PanelMask.SetActive(true);
+        GameObject.Find("PanelMask").GetComponent<PanelMask>().setMask(5f);
+        Destroy(this.gameObject);
 
-        StartCoroutine(DelayPhaseProgress(effectDuration));
     }
 
     IEnumerator DelayPhaseProgress(float delaySec)
     {
         yield return new WaitForSeconds(delaySec);
+
     }
     private void checkLrSide()
     {

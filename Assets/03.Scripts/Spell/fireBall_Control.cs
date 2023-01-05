@@ -33,6 +33,7 @@ public class fireBall_Control : BaseSpellTrigger
         //   GameObject.Find("Player").GetComponent<CommonMove>().AssignForce();
 
         //StartCoroutine(DelayPhaseProgress(effectDuration));
+        FindObjectOfType<PlayerMove>().SetAirSpeed(0.3f, 20f, 10f);
         FindObjectOfType<PlayerMove>().AssignForce(movementSpeed * 1000,1000f);
         exp.SetActive(true);
         movementSpeed = 0;
