@@ -2,25 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class chaosfield_Control : BaseSpellTrigger
+public class acceleratedfield_Control : BaseSpellTrigger
 {
     [SerializeField] private float effectDuration = 5;
-    [SerializeField]  private float timer = 0;
+    [SerializeField] private float timer = 0;
     private bool isInside = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
+
     protected override void HitPlayer()
     {
-        FindObjectOfType<PlayerMove>().isChaos = true;
+        //   FindObjectOfType<PlayerMove>().isChaos = true;
+        //speedupOn
+
         isInside = true;
         timer = effectDuration;
 
@@ -31,8 +35,8 @@ public class chaosfield_Control : BaseSpellTrigger
         {
             isInside = false;
             print(gameObject.name + " exit");
-            if (timer == effectDuration) 
-            StartCoroutine(DelayPhaseProgress(effectDuration));
+            if (timer == effectDuration)
+                StartCoroutine(DelayPhaseProgress(effectDuration));
         }
     }
 
@@ -43,15 +47,18 @@ public class chaosfield_Control : BaseSpellTrigger
             yield return new WaitForSeconds(0.1f);
             if (isInside)
             {
-                break ;
+                break;
             }
             timer -= 0.1f;
 
         }
         if (!isInside)
         {
-            FindObjectOfType<PlayerMove>().isChaos = false;
+            // FindObjectOfType<PlayerMove>().isChaos = false;
+            //speedupOff
+
         }
 
     }
+    
 }
