@@ -21,4 +21,9 @@ public class piston : MonoBehaviour
         }
         anim.speed = AnimationSpeed;
     }
+
+    private void PistonTrigger()
+    {
+        anim.SetTrigger("do");
+    }
 }
