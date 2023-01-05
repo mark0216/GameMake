@@ -18,7 +18,7 @@ public class CommonMove : MonoBehaviour
     [SerializeField] protected Vector2 FinalSpeed = new Vector2(0, 0); // 最終運動速度
 
     #region 水平速度控制
-    private float HorizonSpeedMax = 0; //速度上限
+    [SerializeField] private float HorizonSpeedMax = 0; //速度上限
     public float HorizonSpeed = 0; // 運算用 & 當前值
 
     public float AddSpeedAdjust; // 移動速度控制, 直接用 Time.DeltaTime 值太小
@@ -208,6 +208,11 @@ public class CommonMove : MonoBehaviour
         yield return new WaitForSecondsRealtime(MaintainLength);
 
         HorizonSpeedMax = ChatacterData.MaxMoveSpeed;
+    }
+
+    public void AssignAirSpeed(float AssignValue)
+    {
+        VerticalSpeedMax = AssignValue;
     }
 
     // Action

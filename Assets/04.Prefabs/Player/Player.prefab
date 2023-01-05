@@ -106,6 +106,7 @@ MonoBehaviour:
   LastMoveDirection: 1
   UsingHorizonFlip: 1
   FinalSpeed: {x: 0, y: 0}
+  HorizonSpeedMax: 0
   HorizonSpeed: 0
   AddSpeedAdjust: 5
   MinusSpeedAdjust: 20
@@ -179,7 +180,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1000
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 10
