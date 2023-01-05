@@ -18,7 +18,7 @@ MonoBehaviour:
   AssignSpeedPostive: 20
   AssignSpeedNegtive: -20
   Gravity: 10
-  JumpSpeed: 20
+  JumpSpeed: 10
   AirJumpTimes: 1
   JumpCD: 0.1
   HP: 100

@@ -32,7 +32,7 @@ public class CommonMove : MonoBehaviour
     #endregion
 
     #region 垂直速度控制
-    protected float VerticalSpeedMax = 0; //速度上限
+    [SerializeField] protected float VerticalSpeedMax = 0; //速度上限
     public float VerticalSpeed = 0; // 運算用 & 當前值
 
     private float Gravity; // 重力初始值
@@ -189,6 +189,11 @@ public class CommonMove : MonoBehaviour
 
         // forcexray +朝右 -朝左
         // forceyray +朝上 -朝下
+    }
+
+    public void AssingForceTest()
+    {
+        AssignForce(10, 10);
     }
 
     public void AssignSpeedPostive(float MaintainLength)
