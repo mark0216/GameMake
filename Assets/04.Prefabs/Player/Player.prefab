@@ -110,11 +110,13 @@ MonoBehaviour:
   HorizonSpeed: 0
   AddSpeedAdjust: 5
   MinusSpeedAdjust: 20
+  VerticalSpeedMax: 0
   VerticalSpeed: 0
   GravityAdjust: 2
   GravityMax: -20
   DashLength: 0.3
   JumpTime: 0
+  isChaos: 0
 --- !u!114 &1468845733146059224
 MonoBehaviour:
   m_ObjectHideFlags: 0

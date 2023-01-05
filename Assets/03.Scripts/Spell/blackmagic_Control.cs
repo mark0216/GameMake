@@ -21,14 +21,19 @@ public class blackmagic_Control : BaseSpellTrigger
     protected override void HitPlayer()
     {
         PanelMask.SetActive(true);
-        GameObject.Find("PanelMask").GetComponent<PanelMask>().setMask(5f);
-        Destroy(this.gameObject);
+        PanelMask.GetComponent<PanelMask>().setMask(5f);
+        StartCoroutine(DelayPhaseProgress(5f));
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
+
 
     }
 
     IEnumerator DelayPhaseProgress(float delaySec)
     {
         yield return new WaitForSeconds(delaySec);
+        Destroy(this.gameObject);
+
 
     }
     private void checkLrSide()

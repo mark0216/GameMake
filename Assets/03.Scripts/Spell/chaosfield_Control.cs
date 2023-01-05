@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class chaosfield_Control : BaseSpellTrigger
 {
+    [SerializeField] private float fieldLifetime = 5f;
+
     [SerializeField] private float effectDuration = 5;
     [SerializeField]  private float timer = 0;
     private bool isInside = false;
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(DelayLifetimeProgress(fieldLifetime));
     }
 
     // Update is called once per frame
@@ -32,11 +34,11 @@ public class chaosfield_Control : BaseSpellTrigger
             isInside = false;
             print(gameObject.name + " exit");
             if (timer == effectDuration) 
-            StartCoroutine(DelayPhaseProgress(effectDuration));
+            StartCoroutine(DelayChaosProgress(effectDuration));
         }
     }
 
-    IEnumerator DelayPhaseProgress(float delaySec)
+    IEnumerator DelayChaosProgress(float delaySec)
     {
         while (timer > 0)
         {
@@ -52,6 +54,19 @@ public class chaosfield_Control : BaseSpellTrigger
         {
             FindObjectOfType<PlayerMove>().isChaos = false;
         }
+    }
+    IEnumerator DelayLifetimeProgress(float delaySec)
+    {
+        yield return new WaitForSeconds(delaySec);
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
+        while (timer > 0)
+        {
+            yield return new WaitForSeconds(1f);
+
+        }
+        Destroy(this.gameObject);
+
 
     }
 }

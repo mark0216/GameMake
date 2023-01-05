@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class PanelMask : MonoBehaviour
 {
+    void Update()
+    {
+        transform.position = GameObject.Find("Player").transform.position;
+
+    }
     public void setMask(float time)
     {
-        StartCoroutine(DelayPhaseProgress(time));
+        this.gameObject.SetActive(true);
 
+        StartCoroutine(DelayPhaseProgress(time));
     }
     IEnumerator DelayPhaseProgress(float delaySec)
     {

@@ -75,5 +75,5 @@ public class PlayerMove : CommonMove
     {
         VerticalVelocity(tmp);
     }
-   
+
 }

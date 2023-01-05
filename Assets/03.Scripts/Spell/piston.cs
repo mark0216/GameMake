@@ -5,7 +5,10 @@ using UnityEngine;
 public class piston : MonoBehaviour
 {
     private Animator anim;
-    [SerializeField] private float AnimationSpeed = 1f;
+    [SerializeField] private float delaySecUp = 1f;
+    [SerializeField] private float delaySecDown = 1f;
+
+    private bool isAnimation = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,13 +18,22 @@ public class piston : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (AnimationSpeed < 0)
+        if (!isAnimation)
         {
-            AnimationSpeed = 0;
-        }
-        anim.speed = AnimationSpeed;
-    }
+            StartCoroutine(DelayPhaseProgress(delaySecUp, delaySecDown));
 
+        }
+    }
+    IEnumerator DelayPhaseProgress(float delaySec01, float delaySec02)
+    {
+        isAnimation = true;
+        PistonTrigger();
+        yield return new WaitForSeconds(delaySec01);
+        PistonTrigger();
+        yield return new WaitForSeconds(delaySec02);
+        isAnimation = false;
+
+    }
     private void PistonTrigger()
     {
         anim.SetTrigger("do");

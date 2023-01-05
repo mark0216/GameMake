@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class speedUpField_Control : BaseSpellTrigger
 {
+    [SerializeField] private float fieldLifetime = 5f;
+
     [SerializeField] private float effectDuration = 5;
     [SerializeField] private float timer = 0;
     private bool isInside = false;
@@ -11,7 +13,7 @@ public class speedUpField_Control : BaseSpellTrigger
     // Start is called before the first frame update
     void Start()
     {
-
+        StartCoroutine(DelayLifetimeProgress(fieldLifetime));
     }
 
     // Update is called once per frame
@@ -62,5 +64,18 @@ public class speedUpField_Control : BaseSpellTrigger
         }
 
     }
-    
+    IEnumerator DelayLifetimeProgress(float delaySec)
+    {
+        yield return new WaitForSeconds(delaySec);
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
+        while (timer > 0)
+        {
+            yield return new WaitForSeconds(1f);
+
+        }
+        Destroy(this.gameObject);
+
+
+    }
 }

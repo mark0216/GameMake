@@ -13,7 +13,14 @@ public class fireBall_Control : BaseSpellTrigger
 
     void Start()
     {
-        
+        if (movementSpeed >= 0)
+        {
+            transform.position = new Vector3(GameObject.Find("left").transform.position.x, transform.position.y, transform.position.z);
+        }
+        else
+        {
+            transform.position = new Vector3(GameObject.Find("right").transform.position.x, transform.position.y, transform.position.z);
+        }
     }
 
 
@@ -33,8 +40,9 @@ public class fireBall_Control : BaseSpellTrigger
         //   GameObject.Find("Player").GetComponent<CommonMove>().AssignForce();
 
         //StartCoroutine(DelayPhaseProgress(effectDuration));
-        FindObjectOfType<PlayerMove>().SetAirSpeed(0.3f, 20f, 10f);
-        FindObjectOfType<PlayerMove>().AssignForce(movementSpeed * 1000,1000f);
+        FindObjectOfType<PlayerMove>().SetAirSpeed(0.3f, 20f, 13f);
+        FindObjectOfType<PlayerMove>().AssignSpeedPostive(0.3f);
+        FindObjectOfType<PlayerMove>().AssignForce(movementSpeed*1000, 10);
         exp.SetActive(true);
         movementSpeed = 0;
         GetComponent<SpriteRenderer>().enabled = false;

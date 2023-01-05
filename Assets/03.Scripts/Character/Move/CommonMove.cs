@@ -193,7 +193,7 @@ public class CommonMove : MonoBehaviour
 
     public void AssingForceTest()
     {
-        AssignForce(-10, 10);
+        AssignForce(10, 10);
     }
 
     public void AssignSpeedPostive(float MaintainLength)
