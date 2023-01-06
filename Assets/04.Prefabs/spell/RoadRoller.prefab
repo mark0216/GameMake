@@ -96,8 +96,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ee223fa515a12746bb30b4786c665a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   videoPlayer: {fileID: 2056997613676937658, guid: 4f5d486f11bcd9640844b3a0d6fcc7b4, type: 3}
-  dropSpeed: 10
+  dropSpeed: 18
 --- !u!61 &7446882628697743567
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -148,7 +149,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8906926567463357038}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.1305428, y: 0.44247094, z: -13.133023}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7670547232933639391}

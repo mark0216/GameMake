@@ -13,7 +13,7 @@ public class fireBall_Control : BaseSpellTrigger
 
     void Start()
     {
-        player = GameObject.FindGameObjectsWithTag("Player")[0];
+        //player = GameObject.FindGameObjectsWithTag("Player")[0];
 
         if (movementSpeed >= 0)
         {
@@ -37,7 +37,7 @@ public class fireBall_Control : BaseSpellTrigger
     }
     protected override void HitPlayer()
     {
-        FindObjectOfType<CommonMove>().AssignForce(10, 10, movementSpeed);
+        player.GetComponent<CommonMove>().AssignForce(10, 10, movementSpeed);
         exp.SetActive(true);
         movementSpeed = 0;
         GetComponent<SpriteRenderer>().enabled = false;

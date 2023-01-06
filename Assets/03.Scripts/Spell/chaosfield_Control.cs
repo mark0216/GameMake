@@ -12,8 +12,6 @@ public class chaosfield_Control : BaseSpellTrigger
 
     void Start()
     {
-        player = GameObject.FindGameObjectsWithTag("Player")[0];
-
         if (fieldLifetime > 0)
         {
             StartCoroutine(DelayLifetimeProgress(fieldLifetime));
@@ -23,7 +21,7 @@ public class chaosfield_Control : BaseSpellTrigger
     {
         audioSource.SetActive(true);
 
-        FindObjectOfType<PlayerMove>().isChaos = true;
+        player.GetComponent<PlayerMove>().isChaos = true;
         isInside = true;
         timer = effectDuration;
     }
