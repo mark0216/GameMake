@@ -4,6 +4,8 @@ public class RockControl : BaseSpellTrigger
 {
     [SerializeField] private float effectDuration = 2f;
     [SerializeField] private float movementSpeed = 3f;
+    [SerializeField] private GameObject audioSource;
+
     void Start()
     {
         transform.position += new Vector3(0, 25, 0);
@@ -16,6 +18,8 @@ public class RockControl : BaseSpellTrigger
     }
     protected override void HitPlayer()
     {
+        audioSource.SetActive(true);
+
         player.GetComponent<CommonState>().AssignDazz(effectDuration, false);
     }
     private void checkPosOut()

@@ -117,6 +117,7 @@ MonoBehaviour:
   player: {fileID: 0}
   effectDuration: 2
   movementSpeed: 15
+  audioSource: {fileID: 3371390730616230442}
 --- !u!95 &8825617882630679239
 Animator:
   serializedVersion: 3
@@ -300,6 +301,7 @@ MonoBehaviour:
   player: {fileID: 0}
   effectDuration: 2
   movementSpeed: 15
+  audioSource: {fileID: 1300311593064639339}
 --- !u!95 &8464725375919428089
 Animator:
   serializedVersion: 3
@@ -335,7 +337,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4653115754659508617
 Transform:
   m_ObjectHideFlags: 0
@@ -462,7 +464,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5021284981175077535
 Transform:
   m_ObjectHideFlags: 0
