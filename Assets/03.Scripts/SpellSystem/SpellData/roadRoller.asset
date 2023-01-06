@@ -19,3 +19,4 @@ MonoBehaviour:
     icon: {fileID: 21300000, guid: 1e0efdc0c1e3dbf45a9ae4848f60d1ff, type: 3}
     previewPic: {fileID: 21300000, guid: eea3d6e97ca68ef41b3149c06d48ff52, type: 3}
     spell: {fileID: 8906926567463357038, guid: cf8e67aa4fcbbc642bc1949ed00735eb, type: 3}
+    spellType: 4

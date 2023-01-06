@@ -14,12 +14,13 @@ public class SpellSystem : MonoBehaviour
 
     [Header("Main")]
     public int selectedIndex;
-    [SerializeField] private Transform mousePreview;
-    [SerializeField] private GameObject previewObject;
+    private Transform mousePreview;
+    //[SerializeField] private GameObject previewObject;
 
     private MpControl mpControl;
 
     private List<SpellData> spellList = new List<SpellData>();
+    private float sceneEdge = 14.5f;
     private int currentListNum = 0;
     void Start()
     {
@@ -30,6 +31,11 @@ public class SpellSystem : MonoBehaviour
             ShuffleSpellList();
         }
         CreatInfoSet();
+
+        GameObject empty = new GameObject();
+        mousePreview = Instantiate(empty).transform;
+        mousePreview.name = "mousePreview";
+        Destroy(GameObject.Find("New Game Object"));
     }
 
     void Update()
@@ -43,8 +49,11 @@ public class SpellSystem : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0))
         {
-            if (selectedIndex > -1 && Utility.GetMousePos2D().x < 5)
-                CastSpell();
+            if (selectedIndex > -1 && Utility.GetMousePos2D().x < sceneEdge)
+            {
+                print("cast");
+                StartCoroutine(CastSpell());
+            }
         }
         //預覽物件移動
         MousePreviewControl();
@@ -52,34 +61,46 @@ public class SpellSystem : MonoBehaviour
 
     public void PressSpellButton(int index)
     {
+        print("press button");
         selectedIndex = index;
-        mousePreview.GetComponent<SpriteRenderer>().sprite = infos[index]._data.s_data.previewPic;
+        CancelSpellSelect();
+        Instantiate(infos[index]._data.s_data.previewObj, mousePreview.transform.position, Quaternion.identity).transform.parent = mousePreview;
     }
     private void MousePreviewControl()
     {
-        mousePreview.transform.position = Utility.GetMousePos2D();
-        if (Utility.GetMousePos2D().x < 5)
-            mousePreview.GetComponent<SpriteRenderer>().enabled = true;
-        else
-            mousePreview.GetComponent<SpriteRenderer>().enabled = false;
+        if (mousePreview.childCount > 0)
+        {
+            mousePreview.transform.position = Utility.GetMousePos2D();
 
+            if (Utility.GetMousePos2D().x < sceneEdge)
+                mousePreview.GetChild(0).gameObject.SetActive(true);
+            else
+                mousePreview.GetChild(0).gameObject.SetActive(false);
+        }
     }
 
 
     private void CancelSpellSelect()
     {
         selectedIndex = -1;
-        mousePreview.GetComponent<SpriteRenderer>().sprite = null;
+        if (mousePreview.childCount > 0)
+            Destroy(mousePreview.GetChild(0).gameObject);
+        //foreach (GameObject i in mousePreview.transform)
+        //    Destroy(i);
     }
-    private void CastSpell()
+    IEnumerator CastSpell()
     {
-        mpControl.ReduceMp(infos[selectedIndex]._data.s_data.cost);
-        PreviewObject tmp = Instantiate(previewObject, mousePreview.position, Quaternion.identity).GetComponent<PreviewObject>();
-        tmp.valueSet(infos[selectedIndex]._data.s_data.delayTime, infos[selectedIndex]._data.s_data.previewPic, infos[selectedIndex]._data.s_data.spell);
+        Vector2 spellPos = Utility.GetMousePos2D();
+        Data dataTmp = infos[selectedIndex]._data.s_data;
+        mpControl.ReduceMp(dataTmp.cost);
 
         AddNewSpell(selectedIndex);
-
         CancelSpellSelect();
+
+        yield return new WaitForSeconds(dataTmp.delayTime);
+
+        Instantiate(dataTmp.spell, spellPos, Quaternion.identity);
+
     }
 
     private void CreatInfoSet()

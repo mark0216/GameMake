@@ -15,7 +15,8 @@ MonoBehaviour:
   s_data:
     name: "\u706B\u7403_R"
     cost: 2
-    delayTime: 0
+    delayTime: 1
     icon: {fileID: 3883404504879730988, guid: 81d9320cdf3bc0e46b5dd4699e23d57c, type: 3}
-    previewPic: {fileID: 21300000, guid: 38a5ace5a195d7b409086f860c3f914d, type: 3}
+    previewObj: {fileID: 5399151587718491782, guid: adb433fb01fe2af4eb6925d26c6207fb, type: 3}
     spell: {fileID: 5399151587718491782, guid: 2dc7b322714791a4db04910dfe1f2088, type: 3}
+    spellType: 0

@@ -9,20 +9,13 @@ public class SpellInfoControl : MonoBehaviour
     public SpellData _data;
 
     [Header("UI")]
-    [SerializeField] private Text _name;
     [SerializeField] private Text _cost;
-    [SerializeField] private Image _icon;
+    [SerializeField] private Image _spellIcon;
+    [SerializeField] private Image _typeIcon;
+
+    [Header("Setting")]
+    [SerializeField] private List<Sprite> spellIcons;
     public Button _button;
-
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-
-    }
 
     public void InputSpellData(SpellData input)
     {
@@ -40,8 +33,9 @@ public class SpellInfoControl : MonoBehaviour
     }
     private void InfoSet()
     {
-        _name.text = _data.s_data.name;
         _cost.text = _data.s_data.cost.ToString();
-        _icon.sprite = _data.s_data.icon;
+        _spellIcon.sprite = _data.s_data.icon;
+        _typeIcon.sprite = spellIcons[(int)_data.s_data.spellType];
+        //   _spellIcon.sprite = _data.s_data.icon;
     }
 }
