@@ -15,6 +15,7 @@ MonoBehaviour:
   allSpells:
   - {fileID: 11400000, guid: a0d175778f198574ca045b9a5da9c188, type: 2}
   - {fileID: 11400000, guid: ea192dec9234bf7408382523954f23af, type: 2}
+  - {fileID: 11400000, guid: bcb2c557026c44b44b6ddb49ef19514b, type: 2}
   - {fileID: 11400000, guid: 8c6fb4870374e3f4199ab63648dc3b3f, type: 2}
   - {fileID: 11400000, guid: f7e4eddfed639be4688aa5aab4196165, type: 2}
   - {fileID: 11400000, guid: d927bf54810a84a409d5807fba26f61d, type: 2}

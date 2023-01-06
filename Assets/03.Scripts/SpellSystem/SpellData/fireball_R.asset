@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74657b777265451419a9ae23bb8ae29b, type: 3}
-  m_Name: roadRoller
+  m_Name: fireball_R
   m_EditorClassIdentifier: 
   s_data:
-    name: Road Roller
-    cost: 8
-    delayTime: 1
-    icon: {fileID: 21300000, guid: 1e0efdc0c1e3dbf45a9ae4848f60d1ff, type: 3}
-    previewPic: {fileID: 21300000, guid: eea3d6e97ca68ef41b3149c06d48ff52, type: 3}
-    spell: {fileID: 8906926567463357038, guid: cf8e67aa4fcbbc642bc1949ed00735eb, type: 3}
+    name: "\u706B\u7403_R"
+    cost: 2
+    delayTime: 0
+    icon: {fileID: 3883404504879730988, guid: 81d9320cdf3bc0e46b5dd4699e23d57c, type: 3}
+    previewPic: {fileID: 21300000, guid: 38a5ace5a195d7b409086f860c3f914d, type: 3}
+    spell: {fileID: 5399151587718491782, guid: 2dc7b322714791a4db04910dfe1f2088, type: 3}
