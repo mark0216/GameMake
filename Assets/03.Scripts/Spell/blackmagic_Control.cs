@@ -8,6 +8,20 @@ public class blackmagic_Control : BaseSpellTrigger
     [SerializeField] private float movementSpeed = 3f;
     [SerializeField] private float effectDuration = 3;
     [SerializeField] private GameObject PanelMask;
+
+    void Start()
+    {
+        //player = GameObject.FindGameObjectsWithTag("Player")[0];
+
+        if (movementSpeed >= 0)
+        {
+            transform.position = new Vector3(GameObject.Find("left").transform.position.x, transform.position.y, transform.position.z);
+        }
+        else
+        {
+            transform.position = new Vector3(GameObject.Find("right").transform.position.x, transform.position.y, transform.position.z);
+        }
+    }
     void Update()
     {
         checkLrSide();
