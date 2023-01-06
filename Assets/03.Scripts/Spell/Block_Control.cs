@@ -9,11 +9,15 @@ public class Block_Control : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(DelayLifetimeProgress(LifeTime));
+        if (LifeTime > 0)
+        {
+            StartCoroutine(DelayLifetimeProgress(LifeTime));
+        }
     }
     IEnumerator DelayLifetimeProgress(float delaySec)
     {
         yield return new WaitForSeconds(delaySec);
         Destroy(this.gameObject);
     }
+
 }

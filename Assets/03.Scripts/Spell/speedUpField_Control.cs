@@ -10,26 +10,16 @@ public class speedUpField_Control : BaseSpellTrigger
     [SerializeField] private float timer = 0;
     private bool isInside = false;
 
-    // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(DelayLifetimeProgress(fieldLifetime));
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     protected override void HitPlayer()
     {
-        //   FindObjectOfType<PlayerMove>().isChaos = true;
-        //speedupOn
         FindObjectOfType<PlayerMove>().SetSpeedPostive(20f);
         isInside = true;
         timer = effectDuration;
-
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -41,7 +31,6 @@ public class speedUpField_Control : BaseSpellTrigger
                 StartCoroutine(DelayPhaseProgress(effectDuration));
         }
     }
-
     IEnumerator DelayPhaseProgress(float delaySec)
     {
         while (timer > 0)
@@ -56,8 +45,6 @@ public class speedUpField_Control : BaseSpellTrigger
         }
         if (!isInside)
         {
-            // FindObjectOfType<PlayerMove>().isChaos = false;
-            //speedupOff
             FindObjectOfType<PlayerMove>().SetSpeedPostive(10f);
             print(" off");
 
@@ -72,10 +59,7 @@ public class speedUpField_Control : BaseSpellTrigger
         while (timer > 0)
         {
             yield return new WaitForSeconds(1f);
-
         }
         Destroy(this.gameObject);
-
-
     }
 }

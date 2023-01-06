@@ -193,6 +193,8 @@ public class CommonMove : MonoBehaviour
 
     public void AssingForceTest()
     {
+        SetAirSpeed(0.3f, 18f, 13f);
+        AssignSpeedPostive(0.3f);
         AssignForce(10, 10);
     }
 

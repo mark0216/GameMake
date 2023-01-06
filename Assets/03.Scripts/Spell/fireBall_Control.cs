@@ -37,15 +37,12 @@ public class fireBall_Control : BaseSpellTrigger
     }
     protected override void HitPlayer()
     {
-        //   GameObject.Find("Player").GetComponent<CommonMove>().AssignForce();
-
-        //StartCoroutine(DelayPhaseProgress(effectDuration));
-        FindObjectOfType<PlayerMove>().SetAirSpeed(0.3f, 20f, 13f);
-        FindObjectOfType<PlayerMove>().AssignSpeedPostive(0.3f);
         FindObjectOfType<PlayerMove>().AssignForce(movementSpeed*1000, 10);
         exp.SetActive(true);
         movementSpeed = 0;
         GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = true;
+
     }
 
     IEnumerator DelayPhaseProgress(float delaySec)

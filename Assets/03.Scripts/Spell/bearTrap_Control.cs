@@ -6,33 +6,41 @@ using UnityEngine.UI;
 
 public class bearTrap_Control : BaseSpellTrigger
 {
+    [SerializeField] private float Lifetime = 5f;
     [SerializeField] private float effectDuration = 5;
     public SpriteRenderer myImage;
-
     public Sprite mySprite1;
     public Sprite mySprite2;
+    private bool isTrap = false;
 
     void Start()
     {
         myImage.sprite = mySprite1;
+        if (Lifetime > 0)
+        {
+            StartCoroutine(DelayLifetimeProgress(Lifetime));
+        }
     }
     protected override void HitPlayer()
     {
-        FindObjectOfType<CommonState>().Dazzing=true;
-        //  FindObjectOfType<PlayerMove>().FinalSpeed.x=0;
-        GameObject.Find("Player").GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
-
+        GameObject.Find("Player").GetComponent<CommonState>().AssignDazz(effectDuration, true);
         myImage.sprite = mySprite2;
-
         StartCoroutine(DelayPhaseProgress(effectDuration));
     }
 
     IEnumerator DelayPhaseProgress(float delaySec)
     {
+        isTrap = true;
         yield return new WaitForSeconds(delaySec);
-        FindObjectOfType<CommonState>().Dazzing = false;
-        GameObject.Find("Player").GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
-
+        Destroy(this.gameObject);
+    }
+    IEnumerator DelayLifetimeProgress(float delaySec)
+    {
+        yield return new WaitForSeconds(delaySec);
+        if (isTrap)
+        {
+            yield return new WaitForSeconds(1f);
+        }
         Destroy(this.gameObject);
     }
 }
