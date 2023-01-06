@@ -9,6 +9,8 @@ public class speedUpField_Control : BaseSpellTrigger
     [SerializeField] private float effectDuration = 5;
     [SerializeField] private float timer = 0;
     private bool isInside = false;
+    [SerializeField] private GameObject audioSource;
+
 
     void Start()
     {
@@ -17,6 +19,7 @@ public class speedUpField_Control : BaseSpellTrigger
 
     protected override void HitPlayer()
     {
+        audioSource.SetActive(true);
         FindObjectOfType<PlayerMove>().SetSpeedPostive(20f);
         isInside = true;
         timer = effectDuration;

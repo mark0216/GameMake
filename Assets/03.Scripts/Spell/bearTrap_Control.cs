@@ -10,6 +10,7 @@ public class bearTrap_Control : BaseSpellTrigger
     [SerializeField] private SpriteRenderer myImage;
     [SerializeField] private Sprite mySprite1;
     [SerializeField] private Sprite mySprite2;
+    [SerializeField] private GameObject audioSource;
 
     void Start()
     {
@@ -19,6 +20,7 @@ public class bearTrap_Control : BaseSpellTrigger
     }
     protected override void HitPlayer()
     {
+        audioSource.SetActive(true);
         player.GetComponent<CommonState>().AssignDazz(effectDuration, true);
         myImage.sprite = mySprite2;
         StartCoroutine(DelayPhaseProgress(effectDuration));

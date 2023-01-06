@@ -8,6 +8,8 @@ public class chaosfield_Control : BaseSpellTrigger
     [SerializeField] private float effectDuration = 5;
     private float timer = 0;
     private bool isInside = false;
+    [SerializeField] private GameObject audioSource;
+
     void Start()
     {
         player = GameObject.FindGameObjectsWithTag("Player")[0];
@@ -19,6 +21,8 @@ public class chaosfield_Control : BaseSpellTrigger
     }
     protected override void HitPlayer()
     {
+        audioSource.SetActive(true);
+
         FindObjectOfType<PlayerMove>().isChaos = true;
         isInside = true;
         timer = effectDuration;
