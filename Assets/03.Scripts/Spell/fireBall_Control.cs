@@ -13,6 +13,8 @@ public class fireBall_Control : BaseSpellTrigger
 
     void Start()
     {
+        player = GameObject.FindGameObjectsWithTag("Player")[0];
+
         if (movementSpeed >= 0)
         {
             transform.position = new Vector3(GameObject.Find("left").transform.position.x, transform.position.y, transform.position.z);
@@ -31,13 +33,11 @@ public class fireBall_Control : BaseSpellTrigger
         if (Anim_player.GetCurrentAnimatorStateInfo(0).IsName("end"))
         {
             Destroy(this.gameObject);
-
         }
-
     }
     protected override void HitPlayer()
     {
-        FindObjectOfType<CommonMove>().AssignForce(movementSpeed, 15, movementSpeed);
+        FindObjectOfType<CommonMove>().AssignForce(10, 10, movementSpeed);
         exp.SetActive(true);
         movementSpeed = 0;
         GetComponent<SpriteRenderer>().enabled = false;

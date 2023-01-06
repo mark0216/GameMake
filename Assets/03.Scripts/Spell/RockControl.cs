@@ -7,6 +7,8 @@ public class RockControl : BaseSpellTrigger
     void Start()
     {
         transform.position += new Vector3(0, 25, 0);
+        player = GameObject.FindGameObjectsWithTag("Player")[0];
+
     }
     void Update()
     {

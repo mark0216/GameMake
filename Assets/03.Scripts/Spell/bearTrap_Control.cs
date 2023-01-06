@@ -14,6 +14,8 @@ public class bearTrap_Control : BaseSpellTrigger
     void Start()
     {
         myImage.sprite = mySprite1;
+        player = GameObject.FindGameObjectsWithTag("Player")[0];
+
     }
     protected override void HitPlayer()
     {

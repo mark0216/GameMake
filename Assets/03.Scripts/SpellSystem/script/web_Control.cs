@@ -10,6 +10,8 @@ public class web_Control : BaseSpellTrigger
 
     void Start()
     {
+        player = GameObject.FindGameObjectsWithTag("Player")[0];
+
         if (Lifetime > 0)
         {
             StartCoroutine(DelayLifetimeProgress(Lifetime));

@@ -186,6 +186,9 @@ public class CommonMove : MonoBehaviour
     {
         SetAirSpeed(0.5f, effectHigh, 13f);
         AssignSpeedPostive(0.5f);
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+
         HorizonSpeed = ForceXray;
         VerticalSpeed = ForceYray;
 

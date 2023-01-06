@@ -9,6 +9,7 @@ public class thunder_Control : BaseSpellTrigger
     void Start()
     {
         Anim_player = GetComponent<Animator>();
+        player = GameObject.FindGameObjectsWithTag("Player")[0];
     }
 
     // Update is called once per frame

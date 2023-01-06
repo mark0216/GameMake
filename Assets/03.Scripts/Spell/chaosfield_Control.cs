@@ -10,6 +10,8 @@ public class chaosfield_Control : BaseSpellTrigger
     private bool isInside = false;
     void Start()
     {
+        player = GameObject.FindGameObjectsWithTag("Player")[0];
+
         if (fieldLifetime > 0)
         {
             StartCoroutine(DelayLifetimeProgress(fieldLifetime));
