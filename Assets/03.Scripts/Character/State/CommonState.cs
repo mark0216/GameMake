@@ -21,7 +21,7 @@ public class CommonState : MonoBehaviour
         Dazzing = true;
         if (isFreeze)
         {
-            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
+            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
         }
         yield return new WaitForSecondsRealtime(MaintainLength);
         Dazzing = false;

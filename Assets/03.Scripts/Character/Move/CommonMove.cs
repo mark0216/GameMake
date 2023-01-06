@@ -182,8 +182,10 @@ public class CommonMove : MonoBehaviour
         // 將水平速度變更為上限 
     }
 
-    public void AssignForce(float ForceXray, float ForceYray)
+    public void AssignForce(float ForceXray, float ForceYray,float effectHigh)
     {
+        SetAirSpeed(0.5f, effectHigh, 13f);
+        AssignSpeedPostive(0.5f);
         HorizonSpeed = ForceXray;
         VerticalSpeed = ForceYray;
 
@@ -193,9 +195,8 @@ public class CommonMove : MonoBehaviour
 
     public void AssingForceTest()
     {
-        SetAirSpeed(0.3f, 18f, 13f);
-        AssignSpeedPostive(0.3f);
-        AssignForce(10, 10);
+
+        AssignForce(10, 10, 20);
     }
 
     public void AssignSpeedPostive(float MaintainLength)

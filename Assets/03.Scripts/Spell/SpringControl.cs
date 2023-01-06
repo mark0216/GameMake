@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class SpringControl : BaseSpellTrigger
 {
-    [SerializeField] private float movementSpeed = 1000f;
+    [SerializeField] private float movementSpeed = 20f;
     [SerializeField] private Animator anim;
     protected override void HitPlayer()
     {
         anim.SetTrigger("do");
-        FindObjectOfType<PlayerMove>().AssignForce(0, movementSpeed);
+        FindObjectOfType<PlayerMove>().AssignForce(0, movementSpeed, movementSpeed);
     }
 }
