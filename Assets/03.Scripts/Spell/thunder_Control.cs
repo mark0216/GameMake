@@ -5,8 +5,7 @@ using UnityEngine;
 public class thunder_Control : BaseSpellTrigger
 {
     [SerializeField] private float effectDuration = 5;
-
-    public Animator Anim_player;
+    [SerializeField] private Animator Anim_player;
     void Start()
     {
         Anim_player = GetComponent<Animator>();
@@ -19,7 +18,6 @@ public class thunder_Control : BaseSpellTrigger
         {
             GetComponent<SpriteRenderer>().enabled = false;
             Destroy(this.gameObject);
-
         }
     }
     protected override void HitPlayer()

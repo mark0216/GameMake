@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Block_Control : MonoBehaviour
+public class SpellLifeTime : MonoBehaviour
 {
     [SerializeField] private float LifeTime = 5f;
 
-    // Start is called before the first frame update
     void Start()
     {
         if (LifeTime > 0)

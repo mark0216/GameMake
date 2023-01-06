@@ -6,7 +6,7 @@ public class chaosfield_Control : BaseSpellTrigger
 {
     [SerializeField] private float fieldLifetime = 5f;
     [SerializeField] private float effectDuration = 5;
-    [SerializeField]  private float timer = 0;
+    private float timer = 0;
     private bool isInside = false;
     void Start()
     {

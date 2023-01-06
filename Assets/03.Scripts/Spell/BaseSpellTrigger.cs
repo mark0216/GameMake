@@ -4,8 +4,13 @@ using UnityEngine;
 
 public abstract class BaseSpellTrigger : MonoBehaviour
 {
+    protected GameObject player;
     protected abstract void HitPlayer();
 
+    private void Start()
+    {
+        player = GameObject.FindGameObjectsWithTag("Player")[0];
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
