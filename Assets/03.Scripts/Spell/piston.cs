@@ -7,6 +7,8 @@ public class piston : MonoBehaviour
     private Animator anim;
     [SerializeField] private float delaySecUp = 1f;
     [SerializeField] private float delaySecDown = 1f;
+    [SerializeField] private AudioSource audioSourceUp;
+    [SerializeField] private AudioSource audioSourceDown;
 
     private bool isAnimation = false;
     // Start is called before the first frame update
@@ -27,8 +29,10 @@ public class piston : MonoBehaviour
     IEnumerator DelayPhaseProgress(float delaySec01, float delaySec02)
     {
         isAnimation = true;
+        audioSourceUp.Play(0);
         PistonTrigger();
         yield return new WaitForSeconds(delaySec01);
+        audioSourceDown.Play(0);
         PistonTrigger();
         yield return new WaitForSeconds(delaySec02);
         isAnimation = false;

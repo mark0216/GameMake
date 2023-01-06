@@ -19,7 +19,8 @@ public class web_Control : BaseSpellTrigger
     }
     protected override void HitPlayer()
     {
-        GameObject.Find("Player").GetComponent<CommonState>().AssignDazz(effectDuration,true);
+        player.GetComponent<CommonState>().AssignDazz(effectDuration,true);
+        player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
         StartCoroutine(DelayPhaseProgress(effectDuration));
     }
 
@@ -27,12 +28,13 @@ public class web_Control : BaseSpellTrigger
     {
         isWeb = true;
         yield return new WaitForSeconds(delaySec);
+       // isWeb = false;
         Destroy(this.gameObject);
     }
     IEnumerator DelayLifetimeProgress(float delaySec)
     {
         yield return new WaitForSeconds(delaySec);
-        if (isWeb)
+        while (isWeb)
         {
             yield return new WaitForSeconds(1f);
         }
