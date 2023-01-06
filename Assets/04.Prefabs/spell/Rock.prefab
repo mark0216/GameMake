@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94211e25d2ff31941946184e26f5c43e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   effectDuration: 2
   movementSpeed: 15
 --- !u!95 &8825617882630679239
@@ -296,6 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94211e25d2ff31941946184e26f5c43e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   effectDuration: 2
   movementSpeed: 15
 --- !u!95 &8464725375919428089
@@ -485,7 +487,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1ffbff6dcfae9944f81d03364a408524, type: 3}
+  m_audioClip: {fileID: 8300000, guid: aac95a9a61a12c34f97cbda6e1219876, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

@@ -6,9 +6,11 @@ public class PortalControl : BaseSpellTrigger
 {
     [SerializeField] private GameObject targetPortal;
     private float portalCD = 1.5f;
+    [SerializeField] private AudioSource audioSource;
 
     protected override void HitPlayer()
     {
+        audioSource.Play(0);
         targetPortal.GetComponent<BoxCollider2D>().enabled = false;
         player.transform.position = targetPortal.transform.position;
         StartCoroutine(DelayPhaseProgress(portalCD));
