@@ -51,7 +51,6 @@ public class SpellSystem : MonoBehaviour
         {
             if (selectedIndex > -1 && Utility.GetMousePos2D().x < sceneEdge)
             {
-                print("cast");
                 StartCoroutine(CastSpell());
             }
         }
@@ -61,9 +60,8 @@ public class SpellSystem : MonoBehaviour
 
     public void PressSpellButton(int index)
     {
-        print("press button");
-        selectedIndex = index;
         CancelSpellSelect();
+        selectedIndex = index;
         Instantiate(infos[index]._data.s_data.previewObj, mousePreview.transform.position, Quaternion.identity).transform.parent = mousePreview;
     }
     private void MousePreviewControl()

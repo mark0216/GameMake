@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74657b777265451419a9ae23bb8ae29b, type: 3}
-  m_Name: test 3
+  m_Name: lighting
   m_EditorClassIdentifier: 
   s_data:
-    name: 3
-    cost: 8
-    delayTime: 4
-    icon: {fileID: 21300000, guid: 17fa84703485d314b8d6b5216987d4b1, type: 3}
-    previewPic: {fileID: 21300000, guid: 79de48a104ae77441b01f78adf6c3512, type: 3}
-    spell: {fileID: 7863317358551444872, guid: 19100aff853d15340a496a013cfe3e38, type: 3}
-    spellType: 2
+    name: "\u9583\u96FB"
+    cost: 1
+    delayTime: 0.1
+    icon: {fileID: 9078623318578753597, guid: cf940853a63bd8d4e8f34a7d4983f273, type: 3}
+    previewObj: {fileID: 4874623831249341428, guid: 207466f3273899e4b8706f56c1ac26a1, type: 3}
+    spell: {fileID: 5208931418272667537, guid: a28713ef5acae5142a7fc63186eb9b68, type: 3}
+    spellType: 1

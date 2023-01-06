@@ -388,7 +388,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   exp: {fileID: 5184716106006414308}
-  movementSpeed: -15
+  movementSpeed: -25
   effectDuration: 3
   Anim_player: {fileID: 8305269107861333281}
 --- !u!61 &5399151587718491805
