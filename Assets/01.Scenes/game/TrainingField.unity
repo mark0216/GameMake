@@ -2283,10 +2283,6 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1468845733146059229, guid: 4eac23190a5ea3145af1b69421649bc5, type: 3}
-      propertyPath: DashLength
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1468845733146059229, guid: 4eac23190a5ea3145af1b69421649bc5, type: 3}
       propertyPath: UsingHorizonFlip
       value: 1
       objectReference: {fileID: 0}
