@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMove : CommonMove
 {
     [HideInInspector] public int JumpTime;
-    public bool isChaos=false;
+    public bool isChaos = false;
 
     void Update()
     {
@@ -49,16 +49,17 @@ public class PlayerMove : CommonMove
                 if (JumpTime < MaxJumpTimes && Time.time > LastJumpTime + ChatacterData.JumpCD)
                 {
                     LastJumpTime = Time.time;
-                    JumpTime++;
+
                     VerticalVelocity(1);
 
                     CommonAnimtion.JumpTrigger();
+                    JumpTime++;
                 }
             }
             // ∏ı≈D
         }
-        
-        if(State.Dazzing)
+
+        if (State.Dazzing)
         {
             Brake(Time.deltaTime);
             CommonAnimtion.DazzTrigger();
