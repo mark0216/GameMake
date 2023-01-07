@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allSpells:
   - {fileID: 11400000, guid: a0d175778f198574ca045b9a5da9c188, type: 2}
+  - {fileID: 11400000, guid: 6d247de551bc447478b5c4fac46ebe4b, type: 2}
   - {fileID: 11400000, guid: ea192dec9234bf7408382523954f23af, type: 2}
   - {fileID: 11400000, guid: bcb2c557026c44b44b6ddb49ef19514b, type: 2}
   - {fileID: 11400000, guid: 8c6fb4870374e3f4199ab63648dc3b3f, type: 2}
@@ -21,3 +22,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d927bf54810a84a409d5807fba26f61d, type: 2}
   - {fileID: 11400000, guid: 5a0f81ce7f53e3242bcc0aa984237541, type: 2}
   - {fileID: 11400000, guid: 4b7188d9abe97d94280d4d7fce54cd73, type: 2}
+  - {fileID: 11400000, guid: 5ea4e0c9618f1b24fbeddaaffdf1e630, type: 2}
+  - {fileID: 11400000, guid: 83a942958876900448c7c84e5345d12f, type: 2}
+  - {fileID: 11400000, guid: 483f34e84158a7f42b929cb144199008, type: 2}

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpellLifeTime : MonoBehaviour
 {
-    [SerializeField] private float LifeTime = 5f;
+    [SerializeField] protected float LifeTime;
 
     void Start()
     {
@@ -16,7 +16,7 @@ public class SpellLifeTime : MonoBehaviour
     IEnumerator DelayLifetimeProgress(float delaySec)
     {
         yield return new WaitForSeconds(delaySec);
-        Destroy(this.gameObject);
+        Destroy(this.gameObject, 0.1f);
     }
 
 }

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74657b777265451419a9ae23bb8ae29b, type: 3}
-  m_Name: block
+  m_Name: blackmagic_R
   m_EditorClassIdentifier: 
   s_data:
-    name: "\u65B9\u584A"
-    cost: 1
+    name: "\u9ED1\u9B54\u6CD5_R"
+    cost: 2
     delayTime: 0.5
-    icon: {fileID: 21300000, guid: c068f888792ce6b43ab354e95f1895f8, type: 3}
-    previewObj: {fileID: 1190402435608224840, guid: 72fd663ed42b0cd418c0e7ea9fc61550, type: 3}
-    spell: {fileID: 1190402435608224840, guid: 3aeb898617a2c7a4ca32ec76ade84019, type: 3}
-    spellType: 3
+    icon: {fileID: -7889092321239157914, guid: 2ca439991b478364784aae733a3b9882, type: 3}
+    previewObj: {fileID: 5399151587718491782, guid: adb433fb01fe2af4eb6925d26c6207fb, type: 3}
+    spell: {fileID: 5806139476109012571, guid: e252306ae7428b94b83b8beb10be2c7a, type: 3}
+    spellType: 0

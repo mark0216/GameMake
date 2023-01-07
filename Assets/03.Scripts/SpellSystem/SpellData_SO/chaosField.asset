@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74657b777265451419a9ae23bb8ae29b, type: 3}
-  m_Name: block
+  m_Name: chaosField
   m_EditorClassIdentifier: 
   s_data:
-    name: "\u65B9\u584A"
-    cost: 1
-    delayTime: 0.5
-    icon: {fileID: 21300000, guid: c068f888792ce6b43ab354e95f1895f8, type: 3}
-    previewObj: {fileID: 1190402435608224840, guid: 72fd663ed42b0cd418c0e7ea9fc61550, type: 3}
-    spell: {fileID: 1190402435608224840, guid: 3aeb898617a2c7a4ca32ec76ade84019, type: 3}
-    spellType: 3
+    name: "\u52A0\u901F\u7ACB\u5834"
+    cost: 3
+    delayTime: 0.8
+    icon: {fileID: 2777224895584206472, guid: e83b004107cae0247875d8b743fd069b, type: 3}
+    previewObj: {fileID: 4315133809077628339, guid: daab23418cedc524696f3494a9dc8ecd, type: 3}
+    spell: {fileID: 3067577548370302134, guid: 40580b74e6ba45b47a0422f73a3bddb0, type: 3}
+    spellType: 2

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74657b777265451419a9ae23bb8ae29b, type: 3}
-  m_Name: test 5
+  m_Name: blackmagic_L
   m_EditorClassIdentifier: 
   s_data:
-    name: 5
-    cost: 5
-    delayTime: 2
-    icon: {fileID: 21300000, guid: 1f21190ca9d1e8540b2a3a2e46002685, type: 3}
-    previewPic: {fileID: 21300000, guid: eea3d6e97ca68ef41b3149c06d48ff52, type: 3}
-    spell: {fileID: 7863317358551444872, guid: 19100aff853d15340a496a013cfe3e38, type: 3}
-    spellType: 1
+    name: "\u9ED1\u9B54\u6CD5_L"
+    cost: 2
+    delayTime: 0.5
+    icon: {fileID: -7889092321239157914, guid: 2ca439991b478364784aae733a3b9882, type: 3}
+    previewObj: {fileID: 5399151587718491782, guid: adb433fb01fe2af4eb6925d26c6207fb, type: 3}
+    spell: {fileID: 4094341238706166052, guid: 5e7daf79e7fe14a439ff7d0f38ca8994, type: 3}
+    spellType: 0

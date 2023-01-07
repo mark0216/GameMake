@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1721676444134939469}
   - component: {fileID: 313167021497073324}
   - component: {fileID: 2024487396793779250}
-  - component: {fileID: 3236718492174076300}
+  - component: {fileID: 7449267382160959233}
   m_Layer: 5
   m_Name: 'rickrollerPlayer '
   m_TagString: Untagged
@@ -102,7 +102,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &3236718492174076300
+--- !u!114 &7449267382160959233
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2056997613676937658}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcd90e77f8067e64f98eeeb06dbeaab9, type: 3}
+  m_Script: {fileID: 11500000, guid: c88f978fc955e9045b2b7519a66e8df4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   LifeTime: 8

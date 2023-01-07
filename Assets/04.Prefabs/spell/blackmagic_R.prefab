@@ -118,9 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7691bb78a638d47a0b9be6d70ff98b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  movementSpeed: -3
-  effectDuration: 3
+  movementSpeed: 20
+  effectDuration: 5
   PanelMask: {fileID: 7097734151811870238}
 --- !u!61 &5806139476109012582
 BoxCollider2D:

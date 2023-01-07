@@ -5,8 +5,8 @@ using UnityEngine;
 public class blackmagic_Control : BaseSpellTrigger
 {
 
-    [SerializeField] private float movementSpeed = 3f;
-    [SerializeField] private float effectDuration = 3;
+    [SerializeField] private float movementSpeed;
+    [SerializeField] private float effectDuration;
     [SerializeField] private GameObject PanelMask;
 
     void Start()

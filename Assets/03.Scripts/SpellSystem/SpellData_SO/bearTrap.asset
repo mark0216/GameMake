@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 74657b777265451419a9ae23bb8ae29b, type: 3}
-  m_Name: test0
+  m_Name: bearTrap
   m_EditorClassIdentifier: 
   s_data:
-    name: 0
+    name: "\u6355\u7378\u593E"
     cost: 2
-    delayTime: 6
-    icon: {fileID: 21300000, guid: 0a4da12ff51bd83498216f698c7f20fa, type: 3}
-    previewPic: {fileID: 21300000, guid: ce4b998a710cff04ab20f4985f95fbb1, type: 3}
-    spell: {fileID: 7863317358551444872, guid: 19100aff853d15340a496a013cfe3e38, type: 3}
+    delayTime: 0.8
+    icon: {fileID: 21300000, guid: 5e5e4d19572951c48a31528d30d5cb31, type: 3}
+    previewObj: {fileID: 614990367587409964, guid: 74027d1c976df744b9148f09dc2452ac, type: 3}
+    spell: {fileID: 614990367587409964, guid: 713cb7825758a0c418041ec9467aee26, type: 3}
     spellType: 3
