@@ -96,7 +96,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ee223fa515a12746bb30b4786c665a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   videoPlayer: {fileID: 2056997613676937658, guid: 4f5d486f11bcd9640844b3a0d6fcc7b4, type: 3}
   dropSpeed: 18
 --- !u!61 &7446882628697743567
@@ -109,7 +108,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
