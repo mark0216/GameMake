@@ -20,7 +20,7 @@ MonoBehaviour:
   Gravity: 10
   JumpSpeed: 13
   AirJumpTimes: 1
-  JumpCD: 0.2
+  JumpCD: 0.1
   HP: 100
   Atk: 10
   Def: 10
