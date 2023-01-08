@@ -7,7 +7,9 @@ public class ManaBottle_Control : BaseSpellTrigger
 {
     [SerializeField] private Text ClickText;
     [SerializeField] private Text ManaText;
-    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource audioGain;
+    [SerializeField] private AudioSource audioBreak;
+
     [SerializeField] private GameObject UI;
 
     [SerializeField] private float ClickTime = 10;
@@ -31,6 +33,7 @@ public class ManaBottle_Control : BaseSpellTrigger
     }
     protected override void HitPlayer()
     {
+        audioBreak.Play(0);
         StartCoroutine(DelayDestoryEvent(2));
     }
     private void refresh()
@@ -40,6 +43,7 @@ public class ManaBottle_Control : BaseSpellTrigger
     }
     private void doGainMana(float ManaValue)
     {
+        audioGain.Play(0);
         MpControl.instance.GainMana(ManaValue);
         Debug.Log("Gain " + ManaValue.ToString() + " Mana");
         StartCoroutine(DelayDestoryEvent(2));
@@ -47,7 +51,6 @@ public class ManaBottle_Control : BaseSpellTrigger
     }
     IEnumerator DelayDestoryEvent(float delaySec)
     {
-        audioSource.Play(0);
         UI.SetActive(false);
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<BoxCollider2D>().enabled = false;

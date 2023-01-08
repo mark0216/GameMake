@@ -6,14 +6,21 @@ using UnityEngine.SceneManagement;
 
 public class gameManager : MonoBehaviour
 {
+    public static gameManager instance;
+
     [SerializeField] private float gameTime;
     [Header("開場倒數")]
     [SerializeField] private bool startCountDown;
     [Header("UI設置")]
     [SerializeField] private GameObject PauseUi;
     [SerializeField] private Text timerText;
+    [SerializeField] private GameObject countDownCanvas;
     private float timeCount;
     private bool isPausing;
+    private void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
         timeCount = gameTime;
@@ -34,29 +41,39 @@ public class gameManager : MonoBehaviour
     }
     IEnumerator ThreeTwoOne() //開場倒數
     {
+        countDownCanvas.SetActive(true);
         PlayerMove playerMove = FindObjectOfType<PlayerMove>();
         MpControl mpControl = FindObjectOfType<MpControl>();
         float tmp = mpControl.mpRecoverRate;
 
         mpControl.mpRecoverRate = 0;
         playerMove.enabled = false;
-        yield return new WaitForSeconds(3);
+
+        yield return new WaitForSeconds(4);
+
+        countDownCanvas.SetActive(false);
         mpControl.mpRecoverRate = tmp;
         playerMove.enabled = true;
+        startCountDown = false;
     }
 
     private void CountDown()
     {
-        timeCount -= Time.deltaTime;
-        if (timeCount < 30)
+        if (!startCountDown)
         {
-            timerText.color = Color.red;
-            if (timeCount <= 0)
+            timeCount -= Time.deltaTime;
+            if (timeCount < 30)
             {
+                timerText.color = Color.red;
+                if (timeCount <= 0)
+                {
+                    GameOver(1);
+                    startCountDown = true;
+                }
 
             }
-
         }
+
 
         //時間轉換
         int minutes = Mathf.FloorToInt(timeCount / 60f);
@@ -65,15 +82,15 @@ public class gameManager : MonoBehaviour
 
         timerText.text = timeString;
     }
-    private void GameOver(int winner)  //0->player A      1->player B
+    public void GameOver(int winner)  //0->player A      1->player B
     {
         if (winner == 0)
         {
-
+            SceneLoader.instance.LoadScene(3);
         }
         else
         {
-
+            SceneLoader.instance.LoadScene(4);
         }
     }
 

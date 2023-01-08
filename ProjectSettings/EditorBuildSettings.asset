@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01.Scenes/game/TrainingField.unity
     guid: 29dfe3aaa9b8f50429632ff90afca01a
+  - enabled: 1
+    path: Assets/01.Scenes/game/aWin.unity
+    guid: c69dd12d5aa95e946aad8ec8394d8096
+  - enabled: 1
+    path: Assets/01.Scenes/game/bWin.unity
+    guid: 22888bbc40e17d64bac37128ca72f179
   m_configObjects: {}
