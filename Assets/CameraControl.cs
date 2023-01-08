@@ -8,8 +8,8 @@ public class CameraControl : MonoBehaviour
     [SerializeField] private int currentlevel;
 
     [Header("Setting")]
-    [SerializeField] private int levelHight;
-    [SerializeField] private int hightCondiction;
+    [SerializeField] private float levelHight;
+    [SerializeField] private float hightCondiction;
     void Update()
     {
         if (playerPos.position.y > currentlevel * levelHight + hightCondiction)
