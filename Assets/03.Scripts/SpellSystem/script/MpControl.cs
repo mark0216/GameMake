@@ -32,4 +32,8 @@ public class MpControl : MonoBehaviour
     {
         currentMpValue -= value;
     }
+    public void GainMana(float value)
+    {
+        currentMpValue += value;
+    }
 }
