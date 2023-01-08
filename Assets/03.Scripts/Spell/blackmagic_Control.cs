@@ -8,6 +8,7 @@ public class blackmagic_Control : BaseSpellTrigger
     [SerializeField] private float movementSpeed;
     [SerializeField] private float effectDuration;
     [SerializeField] private GameObject PanelMask;
+    private bool isMask = false;
 
     void Start()
     {
@@ -30,9 +31,10 @@ public class blackmagic_Control : BaseSpellTrigger
     }
     protected override void HitPlayer()
     {
+        isMask = true;
         PanelMask.SetActive(true);
-        PanelMask.GetComponent<PanelMask>().setMask(5f);
-        StartCoroutine(DelayPhaseProgress(5f));
+        PanelMask.GetComponent<PanelMask>().setMask(effectDuration);
+        StartCoroutine(DelayPhaseProgress(effectDuration));
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<BoxCollider2D>().enabled = false;
 
@@ -61,7 +63,10 @@ public class blackmagic_Control : BaseSpellTrigger
     {
         if (transform.position.x < GameObject.Find("left").transform.position.x || transform.position.x > GameObject.Find("right").transform.position.x)
         {
-            Destroy(this.gameObject);
+            if (!isMask)
+            {
+                Destroy(this.gameObject);
+            }
         }
         else
         {
