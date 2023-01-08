@@ -43,6 +43,10 @@ public class SceneLoader : MonoBehaviour
         }
         StartCoroutine(LoadingScene(sceneNum));
     }
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
     IEnumerator LoadingScene(int sceneNum)
     {
         transition.SetTrigger("Start");
