@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ManaBottle_Control : MonoBehaviour
+public class ManaBottle_Control : BaseSpellTrigger
 {
     [SerializeField] private Text ClickText;
     [SerializeField] private Text ManaText;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private GameObject UI;
+
     [SerializeField] private float ClickTime = 10;
     [SerializeField] private float ManaValue = 5;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +29,10 @@ public class ManaBottle_Control : MonoBehaviour
             doGainMana(ManaValue);
         }
     }
+    protected override void HitPlayer()
+    {
+        StartCoroutine(DelayDestoryEvent(2));
+    }
     private void refresh()
     {
         ClickText.text = ClickTime.ToString();
@@ -33,10 +42,16 @@ public class ManaBottle_Control : MonoBehaviour
     {
         MpControl.instance.GainMana(ManaValue);
         Debug.Log("Gain " + ManaValue.ToString() + " Mana");
-        DestoryEvent();
+        StartCoroutine(DelayDestoryEvent(2));
+
     }
-    public void DestoryEvent()
+    IEnumerator DelayDestoryEvent(float delaySec)
     {
+        audioSource.Play(0);
+        UI.SetActive(false);
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
+        yield return new WaitForSeconds(delaySec);
         Destroy(this.gameObject);
     }
 }
