@@ -31,7 +31,8 @@ public class ManaBottle_Control : MonoBehaviour
     }
     private void doGainMana(float ManaValue)
     {
-        Debug.Log("Gain " + ManaValue.ToString()+ " Mana");
+        MpControl.instance.GainMana(ManaValue);
+        Debug.Log("Gain " + ManaValue.ToString() + " Mana");
         DestoryEvent();
     }
     public void DestoryEvent()

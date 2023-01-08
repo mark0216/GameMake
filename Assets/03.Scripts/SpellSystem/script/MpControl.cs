@@ -5,12 +5,18 @@ using UnityEngine.UI;
 
 public class MpControl : MonoBehaviour
 {
+    public static MpControl instance;
+
     [Header("Canvas")]
     [SerializeField] private GameObject mpBar;
     [SerializeField] private Text mpValue;
 
     public float mpRecoverRate;
     public float currentMpValue { get; private set; }
+    private void Awake()
+    {
+        instance = this;
+    }
     void Update()
     {
         MpCalculate();
