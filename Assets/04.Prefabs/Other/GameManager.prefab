@@ -718,7 +718,7 @@ MonoBehaviour:
   gameTime: 180
   startCountDown: 0
   PauseUi: {fileID: 7783382815216855346}
-  timerText: {fileID: 0}
+  timerText: {fileID: 3293728419559620493}
 --- !u!1 &7783382816129657429
 GameObject:
   m_ObjectHideFlags: 0
