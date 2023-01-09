@@ -27,9 +27,9 @@ public class PlayerMove : CommonMove
             // 跳躍狀態重置
             if (isChaos)
             {
-                if (Input.GetKey(KeyCode.A))
+                if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
                     HorizonVelocity(1);
-                else if (Input.GetKey(KeyCode.D))
+                else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
                     HorizonVelocity(-1);
                 else
                     MiunsSpeed(); //沒按按鍵就開始減速
@@ -37,9 +37,9 @@ public class PlayerMove : CommonMove
             }
             else
             {
-                if (Input.GetKey(KeyCode.A))
+                if (Input.GetKey(KeyCode.A)|| Input.GetKey(KeyCode.LeftArrow))
                     HorizonVelocity(-1);
-                else if (Input.GetKey(KeyCode.D))
+                else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
                     HorizonVelocity(1);
                 else
                     MiunsSpeed();

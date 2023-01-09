@@ -37175,9 +37175,13 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 33845608967516996, guid: b84ec3b0f0bc09c4d9c2bfc82e78d433, type: 3}
+      propertyPath: spellDataBase
+      value: 
+      objectReference: {fileID: 11400000, guid: 2f001e4302136da4684042e4661610f1, type: 2}
     - target: {fileID: 33845608967517018, guid: b84ec3b0f0bc09c4d9c2bfc82e78d433, type: 3}
       propertyPath: mpRecoverRate
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7783382816005473858, guid: b84ec3b0f0bc09c4d9c2bfc82e78d433, type: 3}
       propertyPath: timer

@@ -7,8 +7,8 @@ public class rickroller_Control : BaseSpellTrigger
     [SerializeField] private GameObject videoPlayer;
     protected override void HitPlayer()
     {
-        Instantiate(videoPlayer);
         GetComponent<BoxCollider2D>().enabled = false;
+        Instantiate(videoPlayer);
     }
     public void DestoryEvent()
     {

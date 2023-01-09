@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   s_data:
     name: "\u9ED1\u6D1E"
-    cost: 3
-    delayTime: 1
+    cost: 5
+    delayTime: 1.5
     icon: {fileID: -2156509051753758661, guid: 8e0e405d0cb7e2244949c374e06cfa78, type: 3}
     previewObj: {fileID: 2868054279151893110, guid: 0cef08eb6b61a424987287dafdc7850d, type: 3}
     spell: {fileID: 2868054279151893110, guid: d8bc6812babc4834db6919f325d6363f, type: 3}

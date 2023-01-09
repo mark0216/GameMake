@@ -122,6 +122,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93bcc7f87eaf2b249bcfa9704a0ba5b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  Lifetime: 5
-  effectDuration: 3
+  Lifetime: 3
+  effectDuration: 1.5

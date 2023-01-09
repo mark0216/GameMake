@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01.Scenes/game/bWin.unity
     guid: 22888bbc40e17d64bac37128ca72f179
+  - enabled: 1
+    path: Assets/01.Scenes/game/fireBallMode.unity
+    guid: b3c6aabef60c89144bdaf2ec049d35ba
   m_configObjects: {}

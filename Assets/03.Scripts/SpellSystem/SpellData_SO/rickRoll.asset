@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: rickRoll
   m_EditorClassIdentifier: 
   s_data:
-    name: "\u8718\u86DB\u7DB2"
-    cost: 2
-    delayTime: 0.5
+    name: rr
+    cost: 5
+    delayTime: 1
     icon: {fileID: 21300000, guid: 32422085b9b156246bc78ff28ba3e274, type: 3}
     previewObj: {fileID: 8478050331614456182, guid: fb9f925150bf49647a31636118131f2f, type: 3}
     spell: {fileID: 8281144915226429062, guid: a6b4c504ed7e7d944b701c709eaa1dba, type: 3}

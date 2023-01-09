@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: chaosField
   m_EditorClassIdentifier: 
   s_data:
-    name: "\u52A0\u901F\u7ACB\u5834"
-    cost: 3
-    delayTime: 0.8
+    name: "\u6DF7\u4E82\u7ACB\u5834"
+    cost: 4
+    delayTime: 1
     icon: {fileID: 2777224895584206472, guid: e83b004107cae0247875d8b743fd069b, type: 3}
     previewObj: {fileID: 4315133809077628339, guid: daab23418cedc524696f3494a9dc8ecd, type: 3}
     spell: {fileID: 3067577548370302134, guid: 40580b74e6ba45b47a0422f73a3bddb0, type: 3}

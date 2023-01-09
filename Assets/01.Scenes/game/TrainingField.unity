@@ -16234,6 +16234,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 33845608967517018, guid: b84ec3b0f0bc09c4d9c2bfc82e78d433, type: 3}
+      propertyPath: mpRecoverRate
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 112145931889236193, guid: b84ec3b0f0bc09c4d9c2bfc82e78d433, type: 3}
       propertyPath: m_IsActive
       value: 0

@@ -385,7 +385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7691bb78a638d47a0b9be6d70ff98b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 20
+  movementSpeed: 25
   effectDuration: 5
   PanelMask: {fileID: 775110779261049185}
 --- !u!61 &4094341238706166041

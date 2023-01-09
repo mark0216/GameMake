@@ -117,8 +117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6faa5ab9bf2b4254db1bc6e2dff07437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fieldLifetime: 5
-  effectDuration: 5
+  fieldLifetime: 3
+  effectDuration: 3
   audioSource: {fileID: 3607688150939712203}
 --- !u!61 &3067577548370302137
 BoxCollider2D:

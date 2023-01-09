@@ -17,7 +17,7 @@ public class RoadRollerDa : BaseSpellTrigger
     }
     protected override void HitPlayer()
     {
-        Instantiate(videoPlayer);
         GetComponent<BoxCollider2D>().enabled = false;
+        Instantiate(videoPlayer);
     }
 }

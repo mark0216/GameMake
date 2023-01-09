@@ -97,11 +97,7 @@ public class GroundAndWallDetect : MonoBehaviour
         // 更新 Gizmo 
 
         GroundTouching = GroundDetect;
-
-        if (LeftWallDetect || RightWallDetect)
-            WallTouching = true;
-        else
-            WallTouching = false;
+        WallTouching = LeftWallDetect || RightWallDetect ? true : false;
 
         // 更新 State
 

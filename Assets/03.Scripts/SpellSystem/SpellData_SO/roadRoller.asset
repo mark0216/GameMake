@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   s_data:
     name: Road Roller
-    cost: 7
+    cost: 8
     delayTime: 0.5
     icon: {fileID: 21300000, guid: 1e0efdc0c1e3dbf45a9ae4848f60d1ff, type: 3}
     previewObj: {fileID: 8906926567463357038, guid: ef372218b04ae574fbb57d5da8d6b576, type: 3}
