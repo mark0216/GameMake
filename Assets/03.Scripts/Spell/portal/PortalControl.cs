@@ -12,9 +12,9 @@ public class PortalControl : BaseSpellTrigger
     {
         audioSource.Play(0);
         targetPortal.GetComponent<BoxCollider2D>().enabled = false;
-        player.transform.position = targetPortal.transform.position;
+        player.transform.position = targetPortal.transform.position + new Vector3(0, 1.5f, 0);
         StartCoroutine(DelayPhaseProgress(portalCD));
-        
+
     }
     IEnumerator DelayPhaseProgress(float delaySec)
     {

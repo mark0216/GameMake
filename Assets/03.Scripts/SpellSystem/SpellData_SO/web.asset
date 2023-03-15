@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   s_data:
     name: "\u8718\u86DB\u7DB2"
-    cost: 2
+    cost: 3
     delayTime: 0.5
     icon: {fileID: 21300000, guid: bf07a4566cd91844f8c823ac0846b0a3, type: 3}
     previewObj: {fileID: 4905952478019232309, guid: 99fe434a22c00ce44a83e979feb50d1a, type: 3}

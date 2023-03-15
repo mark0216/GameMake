@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 082b065b536998d4498dfb7b73aa866e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fieldLifetime: 5
+  fieldLifetime: 3
   effectDuration: 5
   timer: 0
   audioSource: {fileID: 2558231967027054155}

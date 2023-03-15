@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04c2680d9f3369b4eb1ae82e4d500280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectDuration: 2.5
+  effectDuration: 2
   myImage: {fileID: 614990367587409965}
   mySprite1: {fileID: 21300000, guid: 5e5e4d19572951c48a31528d30d5cb31, type: 3}
   mySprite2: {fileID: 21300000, guid: cc25feb994dd18c4cb197a389034d7b5, type: 3}

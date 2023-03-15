@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fieldLifetime: 3
-  effectDuration: 3
+  effectDuration: 2
   audioSource: {fileID: 3607688150939712203}
 --- !u!61 &3067577548370302137
 BoxCollider2D:
