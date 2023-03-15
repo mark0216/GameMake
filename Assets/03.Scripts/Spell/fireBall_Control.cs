@@ -37,7 +37,7 @@ public class fireBall_Control : BaseSpellTrigger
     }
     protected override void HitPlayer()
     {
-        player.GetComponent<CommonMove>().AssignForce(10, 10, movementSpeed);
+        player.GetComponent<CommonMove>()?.AssignForce(10, 10, movementSpeed);
         exp.SetActive(true);
         movementSpeed = 0;
         GetComponent<SpriteRenderer>().enabled = false;
