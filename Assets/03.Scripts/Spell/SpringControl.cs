@@ -11,6 +11,7 @@ public class SpringControl : BaseSpellTrigger
     {
         audioSource.Play(0);
         anim.SetTrigger("do");
-        FindObjectOfType<PlayerMove>().AssignForce(0, movementSpeed, movementSpeed);
+        player.GetComponent<PlayerMove>()?.AssignForce(0, movementSpeed, movementSpeed);
+        player.GetComponent<PlayerMoveV2>()?.Knockback(Vector2.up * movementSpeed);
     }
 }

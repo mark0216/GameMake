@@ -23,7 +23,8 @@ public class thunder_Control : BaseSpellTrigger
     }
     protected override void HitPlayer()
     {
-        player.GetComponent<CommonState>().AssignDazz(effectDuration, true);
+        player.GetComponent<CommonState>()?.AssignDazz(effectDuration, true);
+        player.GetComponent<PlayerMoveV2>()?.Dizzy(effectDuration);
        // FindObjectOfType<PlayerMove>().SetAirSpeed(effectDuration, 8f,10f);
         print(gameObject.name + " hit");
     }

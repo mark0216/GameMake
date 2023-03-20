@@ -249,6 +249,7 @@ MonoBehaviour:
   movementSpeed: 30
   effectDuration: 3
   Anim_player: {fileID: 5320405773118445487}
+  expForce: {x: 5, y: 5}
 --- !u!61 &8104928330270268435
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -514,7 +515,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9035365756072784234}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -530,7 +531,7 @@ PointEffector2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9035365756072784234}
-  m_Enabled: 1
+  m_Enabled: 0
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2

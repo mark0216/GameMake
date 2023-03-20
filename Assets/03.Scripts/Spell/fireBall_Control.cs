@@ -9,7 +9,7 @@ public class fireBall_Control : BaseSpellTrigger
     [SerializeField] private float movementSpeed = 3f;
     [SerializeField] private float effectDuration = 0.3f;
     public Animator Anim_player;
-
+    public Vector2 expForce;
 
     void Start()
     {
@@ -35,13 +35,16 @@ public class fireBall_Control : BaseSpellTrigger
             Destroy(this.gameObject);
         }
     }
+
     protected override void HitPlayer()
     {
         player.GetComponent<CommonMove>()?.AssignForce(10, 10, movementSpeed);
+        Vector2 dir = player.transform.position - transform.position;
+        player.GetComponent<PlayerMoveV2>()?.Knockback(dir * expForce);
         exp.SetActive(true);
         movementSpeed = 0;
         GetComponent<SpriteRenderer>().enabled = false;
-        GetComponent<BoxCollider2D>().enabled = true;
+        GetComponent<BoxCollider2D>().enabled = false;
 
     }
 

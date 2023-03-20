@@ -27,10 +27,11 @@ public class PlayerMoveV2 : MonoBehaviour
     [SerializeField] UnityEvent landEvent;
     [SerializeField] UnityEvent runEvent;
     private Animator anim;
-
+    
     #region  Variables float
     [Header("¶]¨B")]
     public float runMaxSpeed;
+    private float runMaxSpeedScale = 1f;
     public float runAcceleration;
     private float runAccelAmount;
     public float runDecceleration;
@@ -68,6 +69,12 @@ public class PlayerMoveV2 : MonoBehaviour
     public float knockbackDuration;
     public Vector2 knockbackSpeed;
     public float hurtTime;
+    private float dizzyStartTime;
+    private float dizzyDuration;
+    private float speedUpStartTime;
+    private float speedUpDuration;
+    private float ChaosStartTime;
+    private float ChaosDuration;
     #endregion
     [Space(5)]
 
@@ -91,11 +98,14 @@ public class PlayerMoveV2 : MonoBehaviour
     public bool isHurt { get; private set; }
     public bool isStick { get; private set; }
 
-    [Space(5)]
+    //[Space(5)]
 
-    [Header("ª¬ºA")]
-    public bool isChaos = false;
-    public bool isDizzy = false;
+    //[Header("ª¬ºA")]
+    public bool isChaos; //{ get; private set; }
+    public bool isDizzy; //{ get; private set; }
+
+    public bool isSpeedUp; //{ get; private set; }
+
     private bool canFlip;
 
     #endregion
@@ -133,11 +143,15 @@ public class PlayerMoveV2 : MonoBehaviour
     public void OnDash(InputValue inputValue)
     {
         currentDash = inputValue.isPressed;
+        if (isDizzy)
+            currentDash = false;
         Debug.Log(currentDash);
     }
     public void OnJump(InputValue inputValue)
     {
         currentJump = inputValue.isPressed;
+        if (isDizzy)
+            currentJump = false;
         Debug.Log(currentJump);
     }
 
@@ -167,7 +181,7 @@ public class PlayerMoveV2 : MonoBehaviour
         //    JumpDown();
         //}
         //Input Roll
-        if (currentDash && !currentJump)
+        if (currentDash)// && !currentJump)
         {
             Roll();
             currentDash = false;
@@ -217,6 +231,9 @@ public class PlayerMoveV2 : MonoBehaviour
 
         CheckKnockBack();
         CheckHurt();
+        CheckDizzy();
+        CheckSpeedUp();
+        CheckChaos();
 
         isStick = IsStick();
         #endregion
@@ -265,9 +282,6 @@ public class PlayerMoveV2 : MonoBehaviour
     {
         if (!isRolling && !isKnockBack)
             Run();
-
-        if (RB.velocity.y > maxFallSpeed)
-            RB.velocity = new Vector2(RB.velocity.x, maxFallSpeed);
     }
 
     private void Flip()
@@ -287,13 +301,13 @@ public class PlayerMoveV2 : MonoBehaviour
     {
         //The final speed we want to reach
         float targetSpeed;
-        targetSpeed = moveInput.x * runMaxSpeed;
+        targetSpeed = moveInput.x * runMaxSpeed * runMaxSpeedScale;
         //Caculate difference between current and target speed
         float speedDif = targetSpeed - RB.velocity.x;
         //Calculate run acceleration & deceleration forces using formula: amount = ((1 / Time.fixedDeltaTime) * acceleration) / runMaxSpeed
         //50 is the number of times a second Unity calls it physics update => 1 / 0.02
-        runAccelAmount = (50 * runAcceleration) / runMaxSpeed;
-        runDeccelAmount = (50 * runDecceleration) / runMaxSpeed;
+        runAccelAmount = (50 * runAcceleration) / (runMaxSpeed * runMaxSpeedScale);
+        runDeccelAmount = (50 * runDecceleration) / (runMaxSpeed * runMaxSpeedScale);
 
         float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? runAccelAmount : runDeccelAmount;
         //Caculate how much force we still need for the velocity
@@ -349,7 +363,15 @@ public class PlayerMoveV2 : MonoBehaviour
         }
     }
 
-    public void Knockback(int direction)
+    public void Knockback(Vector2 dir)
+    {
+        isKnockBack = true;
+        isHurt = true;
+        knockbackStartTime = Time.time;
+        RB.velocity = dir;
+    }
+
+    public void Knockback(float direction)
     {
         isKnockBack = true;
         isHurt = true;
@@ -376,7 +398,7 @@ public class PlayerMoveV2 : MonoBehaviour
 
     private void Roll()
     {
-        if (canRoll && !isJumping && !isFalling && moveInput.x != 0 && !isKnockBack)
+        if (canRoll && moveInput.x != 0)//&& !isJumping && !isFalling && moveInput.x != 0 && !isKnockBack)
         {
             StartCoroutine(PerformRoll());
         }
@@ -388,7 +410,7 @@ public class PlayerMoveV2 : MonoBehaviour
         isRolling = true;
 
         SetGravityScale(0f);
-        playerCollider.enabled = false;
+        //playerCollider.enabled = false;
         //playerCollider2.enabled = false;
         RB.velocity = new Vector2(moveInput.x * rollPower, 0f);
         tr.emitting = true;
@@ -439,6 +461,53 @@ public class PlayerMoveV2 : MonoBehaviour
         //{
         //    currentOneWayPlatform = null;
         //}
+    }
+
+    public void Dizzy(float duration)
+    {
+        isDizzy = true;
+        dizzyStartTime = Time.time;
+        dizzyDuration = duration;
+    }
+
+    private void CheckDizzy()
+    {
+        if (Time.time >= dizzyStartTime + dizzyDuration && isDizzy)
+        {
+            isDizzy = false;
+            runMaxSpeedScale = 1f;
+        }
+    }
+
+    public void SpeedUp(float duration, float power)
+    {
+        isSpeedUp = true;
+        speedUpStartTime = Time.time;
+        speedUpDuration = duration;
+        runMaxSpeedScale = power;
+    }
+
+    private void CheckSpeedUp()
+    {
+        if (Time.time >= speedUpStartTime + speedUpDuration && isSpeedUp)
+        {
+            isSpeedUp = false;
+            runMaxSpeedScale = 1f;
+        }
+    }
+    public void Chaos(float duration)
+    {
+        isChaos = true;
+        ChaosStartTime = Time.time;
+        ChaosDuration = duration;
+    }
+
+    private void CheckChaos()
+    {
+        if (Time.time >= ChaosStartTime + ChaosDuration && isChaos)
+        {
+            isChaos = false;
+        }
     }
 
     private void OnDrawGizmosSelected()

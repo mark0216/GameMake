@@ -19,8 +19,11 @@ public class web_Control : BaseSpellTrigger
     }
     protected override void HitPlayer()
     {
-        player.GetComponent<CommonState>().AssignDazz(effectDuration,true);
-        player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
+        player.GetComponent<CommonState>()?.AssignDazz(effectDuration,true);
+        if (player.GetComponent<CommonState>())
+            player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
+        player.GetComponent<PlayerMoveV2>()?.Dizzy(effectDuration);
+        
         StartCoroutine(DelayPhaseProgress(effectDuration));
     }
 

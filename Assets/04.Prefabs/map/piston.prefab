@@ -138,7 +138,7 @@ GameObject:
   - component: {fileID: 1967968822417008092}
   - component: {fileID: 1326107654761774629}
   - component: {fileID: 5791811499977533517}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: piston_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -445,7 +445,7 @@ GameObject:
   - component: {fileID: 709514741698645646}
   - component: {fileID: 6974318622736685949}
   - component: {fileID: 5791811499977533518}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: piston_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

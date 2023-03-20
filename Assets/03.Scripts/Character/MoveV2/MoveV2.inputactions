@@ -285,6 +285,17 @@
                 },
                 {
                     "name": "",
+                    "id": "dbefc623-86f5-48e4-b7db-d5e8873fb001",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "11da7dc2-65f4-4e61-a6ee-5ce31576ba01",
                     "path": "<Keyboard>/w",
                     "interactions": "",

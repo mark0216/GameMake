@@ -20,7 +20,8 @@ public class speedUpField_Control : BaseSpellTrigger
     protected override void HitPlayer()
     {
         audioSource.SetActive(true);
-        FindObjectOfType<PlayerMove>().SetSpeedPostive(20f);
+        player.GetComponent<PlayerMove>()?.SetSpeedPostive(20f);
+        player.GetComponent<PlayerMoveV2>()?.SpeedUp(effectDuration, 2f);
         isInside = true;
         timer = effectDuration;
     }
@@ -32,6 +33,7 @@ public class speedUpField_Control : BaseSpellTrigger
             print(gameObject.name + " exit");
             if (timer == effectDuration)
                 StartCoroutine(DelayPhaseProgress(effectDuration));
+            player.GetComponent<PlayerMoveV2>()?.SpeedUp(effectDuration, 2f);
         }
     }
     IEnumerator DelayPhaseProgress(float delaySec)
@@ -48,7 +50,7 @@ public class speedUpField_Control : BaseSpellTrigger
         }
         if (!isInside)
         {
-            FindObjectOfType<PlayerMove>().SetSpeedPostive(10f);
+            player.GetComponent<PlayerMove>()?.SetSpeedPostive(10f);
             print(" off");
 
         }

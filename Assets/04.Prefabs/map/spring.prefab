@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2021932299423295266}
   - component: {fileID: 2021932299423295267}
   - component: {fileID: 2021932299423295277}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: springBotton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 2021932299537941801}
   - component: {fileID: 2021932299537941800}
   - component: {fileID: 2021932299537941803}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: springTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 543250ae9a5c9b74ba5512c7bf8c6164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 20
+  movementSpeed: 15
   anim: {fileID: 2021932300065189832}
   audioSource: {fileID: 4522158862987439694}
 --- !u!1 &2021932300065189838
@@ -297,7 +297,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5041889910627093870}
   - component: {fileID: 4522158862987439694}
-  m_Layer: 6
+  m_Layer: 10
   m_Name: Audio Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}

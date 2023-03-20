@@ -47,13 +47,26 @@ public class gameManager : MonoBehaviour
         float tmp = mpControl.mpRecoverRate;
 
         mpControl.mpRecoverRate = 0;
-        playerMove.enabled = false;
+
+        if(playerMove)
+            playerMove.enabled = false;
+
+        PlayerMoveV2 playerMoveV2 = FindObjectOfType<PlayerMoveV2>();
+        if (playerMoveV2)
+            playerMoveV2.enabled = false;
 
         yield return new WaitForSeconds(4);
 
         countDownCanvas.SetActive(false);
         mpControl.mpRecoverRate = tmp;
-        playerMove.enabled = true;
+
+
+        if (playerMove)
+            playerMove.enabled = true;
+
+        if (playerMoveV2)
+            playerMoveV2.enabled = true;
+
         startCountDown = false;
     }
 

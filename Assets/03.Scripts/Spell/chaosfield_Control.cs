@@ -20,8 +20,10 @@ public class chaosfield_Control : BaseSpellTrigger
     protected override void HitPlayer()
     {
         audioSource.SetActive(true);
+        if (player.GetComponent<PlayerMove>())
+            player.GetComponent<PlayerMove>().isChaos = true;
+        player.GetComponent<PlayerMoveV2>()?.Chaos(effectDuration);
 
-        player.GetComponent<PlayerMove>().isChaos = true;
         isInside = true;
         timer = effectDuration;
     }
@@ -33,6 +35,7 @@ public class chaosfield_Control : BaseSpellTrigger
             print(gameObject.name + " exit");
             if (timer == effectDuration) 
             StartCoroutine(DelayChaosProgress(effectDuration));
+            player.GetComponent<PlayerMoveV2>()?.Chaos(effectDuration);
         }
     }
     IEnumerator DelayChaosProgress(float delaySec)
@@ -48,7 +51,8 @@ public class chaosfield_Control : BaseSpellTrigger
         }
         if (!isInside)
         {
-            FindObjectOfType<PlayerMove>().isChaos = false;
+            if (player.GetComponent<PlayerMove>())
+                player.GetComponent<PlayerMove>().isChaos = false;
         }
     }
     IEnumerator DelayLifetimeProgress(float delaySec)

@@ -21,7 +21,8 @@ public class bearTrap_Control : BaseSpellTrigger
     protected override void HitPlayer()
     {
         audioSource.SetActive(true);
-        player.GetComponent<CommonState>().AssignDazz(effectDuration, true);
+        player.GetComponent<CommonState>()?.AssignDazz(effectDuration, true);
+        player.GetComponent<PlayerMoveV2>()?.Dizzy(effectDuration);
         myImage.sprite = mySprite2;
         StartCoroutine(DelayPhaseProgress(effectDuration));
     }
