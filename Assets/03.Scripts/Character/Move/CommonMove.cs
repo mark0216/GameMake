@@ -111,19 +111,20 @@ public class CommonMove : MonoBehaviour
     }
     protected void MiunsSpeed()
     {
-        //  Debug.Log("minus speed is working");
-
-        HorizonSpeed -= MinusSpeed * LastMoveDirection * Time.deltaTime * MinusSpeedAdjust;
+        if (HorizonSpeed > 0)
+        {
+            HorizonSpeed -= MinusSpeed * 1 * Time.deltaTime * MinusSpeedAdjust;
+            if (HorizonSpeed < 0)
+                HorizonSpeed = 0;
+        }
+        else if(HorizonSpeed < 0)
+        {
+            HorizonSpeed -= MinusSpeed * -1 * Time.deltaTime * MinusSpeedAdjust;
+            if (HorizonSpeed > 0)
+                HorizonSpeed = 0;
+        }
+        HorizonSpeed = Mathf.Clamp(HorizonSpeed, -HorizonSpeedMax, HorizonSpeedMax);
         // 計算當前速度
-
-        if (LastMoveDirection == 1)
-        {
-            HorizonSpeed = Mathf.Clamp(HorizonSpeed, 0, HorizonSpeedMax);
-        }
-        else if (LastMoveDirection == -1)
-        {
-            HorizonSpeed = Mathf.Clamp(HorizonSpeed, -HorizonSpeedMax, 0);
-        }
         // 限制移動速度最大最小值
         // 減速 最大或最小為0
     }

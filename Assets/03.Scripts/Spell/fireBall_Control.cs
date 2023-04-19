@@ -38,8 +38,11 @@ public class fireBall_Control : BaseSpellTrigger
 
     protected override void HitPlayer()
     {
-        player.GetComponent<CommonMove>()?.AssignForce(10, 10, movementSpeed);
+        float originVerticalSpeed = (float)(player.GetComponent<CommonMove>()?.VerticalSpeed);
         Vector2 dir = player.transform.position - transform.position;
+        dir.Normalize();
+        player.GetComponent<CommonMove>()?.AssignForce(Mathf.Abs(movementSpeed) * dir.x, originVerticalSpeed + Mathf.Abs(movementSpeed) * dir.y, 13f);
+
         player.GetComponent<PlayerMoveV2>()?.Knockback(dir * expForce);
         exp.SetActive(true);
         movementSpeed = 0;
